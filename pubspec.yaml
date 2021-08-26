@@ -23,6 +23,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.18.0
+  hooks_riverpod: ^1.0.0-dev.7
+  freezed_annotation: ^0.14.2
+  html: ^0.15.0
+  visibility_detector: ^0.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -32,6 +37,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  freezed: ^0.14.2
+  build_runner: ^2.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
