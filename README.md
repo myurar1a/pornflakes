@@ -1,16 +1,23 @@
-# pornflakes
+# Pornflakes
+[![Generic badge](https://img.shields.io/badge/platform-android-blue.svg)](https://pub.dev/packages/chewie)
 
-A new Flutter project.
+This app is designed to comfortably watch Pornhub videos in a YouTube-like UI.
 
-## Getting Started
+## ToDo List
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [x] MainPage
+- [x] VideoPage
+- [ ] Embed Stars / Category / Production / Tags
+- [ ] Like/Unlike
+- [x] Copy video's URL
+- [ ] Downlaod
+- [ ] Share
+- [ ] Change video quality (Waiting for supported by chewie)
+- [x] Search
+- [ ] Search history
+- [ ] Search suggestions
+- [ ] LibraryPage
+- [ ] Watch history
+- [ ] Create a playlist
+- [ ] Login
+- [ ] App settings
