@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:pornflakes/model/freezed/list_item.dart';
 import 'package:pornflakes/view/plugin/popup_menu.dart';
-import 'package:pornflakes/view/video/video_page.dart';
+import 'package:pornflakes/view_model/video_player_viewmodel.dart';
 
-Widget videoTile(context, ListItem videoItem) {
+Widget videoTile(BuildContext context, WidgetRef ref, ListItem videoItem) {
   return GestureDetector(
     onTap: () {
+      ref.read(phUrlProvider).state = videoItem.videoUrl;
+      ref.read(videoTitleProvider).state = videoItem.title;
+      /*
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => VideoPage()),
+        MaterialPageRoute(builder: (context) {
+          return VideoPage();
+        }),
       );
+      */
+      Navigator.pushNamed(context, '/video');
     },
     child: Column(children: <Widget>[
       Stack(children: [
@@ -92,6 +100,15 @@ Widget loadingView() {
         CircularProgressIndicator(),
         SizedBox(height: 20),
       ],
+    ),
+  );
+}
+
+Widget errorView(String error) {
+  return Center(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [Text(error)],
     ),
   );
 }

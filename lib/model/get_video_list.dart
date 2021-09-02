@@ -1,14 +1,13 @@
 import 'package:html/parser.dart';
 
 import 'freezed/list_item.dart';
-import 'get_body.dart';
 
 class VideoListScrape {
-  Future<List<ListItem>> getVideoList(String url, String parseId) async {
+  Future<List<ListItem>> getVideoList(
+      String url, String parseId, String phBody) async {
     List<ListItem> newVideoList = [];
 
     // 動画リストのスクレイピング
-    final phBody = await GetBody().getBody(url);
     final elements =
         parse(phBody).querySelectorAll('$parseId > .pcVideoListItem');
 

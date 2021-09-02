@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:pornflakes/main.dart';
@@ -7,13 +8,52 @@ import 'package:pornflakes/view/bottom_navigation_bar/home.dart';
 import 'package:pornflakes/view/bottom_navigation_bar/hot.dart';
 import 'package:pornflakes/view/bottom_navigation_bar/popular.dart';
 import 'package:pornflakes/view/plugin/popup_menu.dart';
+import 'package:pornflakes/view_model/bottom_navigation_bar/search_viewmodel.dart';
 import 'bottom_navigation_bar/library.dart';
 
-class MainPage extends HookConsumerWidget {
+class MainPage extends ConsumerStatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends ConsumerState<MainPage> {
+  // for Search
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  late SearchBar searchBar;
+  late int nowTab;
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(title: Text('Pornflakes'), actions: [
+      searchBar.getSearchAction(context),
+      appBarPopupMenu(context)
+    ]);
+  }
+
+  void onSubmitted(String value) {
+    ref.read(searchWordProvider).state = value;
+  }
+
+  void clearSubmit() {
+    ref.read(searchWordProvider).state = '';
+  }
+
+  _MainPageState() {
+    searchBar = SearchBar(
+      inBar: false,
+      hintText: 'Pornhub を検索',
+      buildDefaultAppBar: buildAppBar,
+      setState: setState,
+      onSubmitted: onSubmitted,
+      closeOnSubmit: false,
+      clearOnSubmit: false,
+      onClosed: clearSubmit,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final tabType = ref.watch(tabTypeProvider);
     final _screens = [
       HomeListView(),
@@ -22,25 +62,18 @@ class MainPage extends HookConsumerWidget {
       LibraryScreen(),
     ];
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Pornflakes'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            tooltip: '検索',
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SearchPage()));
-            },
-          ),
-          appBarPopupMenu(context), //from 'plugin/popup_menu.dart'
-        ],
-      ),
-      body: _screens[tabType.state.index],
+      appBar: searchBar.build(context),
+      key: _scaffoldKey,
+      body: (ref.watch(searchWordProvider).state == '')
+          ? _screens[tabType.state.index]
+          : SearchListView(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: tabType.state.index,
         onTap: (int selectIndex) {
+          searchBar.onClosed?.call();
+          searchBar.controller.clear();
+          Navigator.maybePop(context);
           tabType.state = TabType.values[selectIndex];
         },
         selectedItemColor: Theme.of(context).accentColor,
@@ -49,8 +82,7 @@ class MainPage extends HookConsumerWidget {
           BottomNavigationBarItem(
               icon: Icon(Icons.local_fire_department), label: '急上昇'),
           BottomNavigationBarItem(icon: Icon(Icons.people), label: '日本で人気'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.library_books), label: 'ライブラリ'),
+          BottomNavigationBarItem(icon: Icon(Icons.folder), label: 'ライブラリ'),
         ],
       ),
     );

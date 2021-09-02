@@ -1,27 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SearchPage extends StatefulWidget {
-  SearchPage({Key? key}) : super(key: key);
+import 'package:pornflakes/model/freezed/list_item.dart';
+import 'package:pornflakes/view/video_list.dart';
+import 'package:pornflakes/view/plugin/last_indicator.dart';
+import 'package:pornflakes/view_model/bottom_navigation_bar/search_viewmodel.dart';
 
+class SearchListView extends HookConsumerWidget {
   @override
-  _SearchPage createState() => _SearchPage();
-}
-
-class _SearchPage extends State<SearchPage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ここに検索ボックス'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('検索履歴 及び 検索結果の ListView.builder '),
-          ],
-        ),
-      ),
+      body: _buildList(context, ref),
     );
+  }
+
+  Widget _buildList(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(searchListViewModelProvider);
+    late List<ListItem> videoList;
+    if (!state.isLoading) {
+      videoList = ref.read(searchListViewModelProvider).items;
+    }
+    if (state.error != null) {
+      return errorView(state.error!);
+    } else {
+      return RefreshIndicator(
+          onRefresh: () async => ref.refresh(searchListViewModelProvider),
+          child: state.isLoading
+              ? loadingView()
+              : ListView.builder(
+                  itemCount: videoList.length + 1,
+                  itemBuilder: (BuildContext context, int index) {
+                    if (index == videoList.length) {
+                      return LastIndicator(() {
+                        ref.read(searchCounterProvider.notifier).increment();
+                      });
+                    }
+                    return videoTile(context, ref, videoList[index]);
+                  },
+                ));
+    }
   }
 }

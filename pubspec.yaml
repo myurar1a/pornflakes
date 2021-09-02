@@ -28,6 +28,10 @@ dependencies:
   freezed_annotation: ^0.14.2
   html: ^0.15.0
   visibility_detector: ^0.2.0
+  chewie: ^1.2.2
+  video_player: ^2.1.14
+  flutter_search_bar: ^3.0.0-dev.1
+  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -39,6 +43,19 @@ dev_dependencies:
     sdk: flutter
   freezed: ^0.14.2
   build_runner: ^2.1.0
+  flutter_launcher_icons: ^0.9.2
+  flutter_native_splash: ^1.2.1
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "assets/icon/icon_background.png"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+
+flutter_native_splash:
+  image: "assets/icon/front.png" 
+  color: "ff9900"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
