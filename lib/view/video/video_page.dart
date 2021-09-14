@@ -51,6 +51,8 @@ class _VideoPageState extends ConsumerState<VideoPage> {
     _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
+        materialProgressColors:
+            ChewieProgressColors(handleColor: Color.fromRGBO(255, 153, 0, 1.0)),
         hotspots: hotspots,
         additionalOptions: (context) {
           return <OptionItem>[

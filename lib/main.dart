@@ -19,8 +19,14 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Pronflakes',
       theme: ThemeData(
-        primaryColor: Colors.white,
-        accentColor: Color.fromRGBO(255, 153, 0, 1.0),
+        colorScheme: ColorScheme.light().copyWith(
+          primary: Color.fromRGBO(255, 153, 0, 1.0),
+          secondary: Color.fromRGBO(255, 153, 0, 1.0),
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+        ),
       ),
       //home: MainPage(),
       initialRoute: '/', // ここ以降の定義がルーティング定義

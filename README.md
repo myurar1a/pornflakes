@@ -9,6 +9,7 @@ This app is designed to comfortably watch Pornhub videos in a YouTube-like UI.
 - Show hotspot
 - Library page (Functions may be limited)
 - Faster acquisition of video information
+- Support Flutter 2.5.0
 - Modify the code
 - Bug fixes
 

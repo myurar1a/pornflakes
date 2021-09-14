@@ -76,7 +76,7 @@ class _MainPageState extends ConsumerState<MainPage> {
           Navigator.maybePop(context);
           tabType.state = TabType.values[selectIndex];
         },
-        selectedItemColor: Theme.of(context).accentColor,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
           BottomNavigationBarItem(

@@ -10,7 +10,7 @@ class GetBody {
 
   Future<String> getBody(String url, List<List<String>>? cookie) async {
     try {
-      await Future.delayed(Duration(seconds: 1), () {});
+      //await Future.delayed(Duration(seconds: 1), () {});
       final request = await HttpClient().getUrl(Uri.parse(url));
       if (cookie != null) {
         for (var i = 0; i < cookie.length; i++) {
