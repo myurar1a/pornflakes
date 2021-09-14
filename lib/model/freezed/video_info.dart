@@ -29,6 +29,7 @@ abstract class VideoInfo with _$VideoInfo {
     required final List category,
     required final List production,
     required final List<String?> tags,
+    required final List<double>? hotspots,
   }) = _VideoInfo;
 }
 

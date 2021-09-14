@@ -40,7 +40,8 @@ class _$VideoInfoTearOff {
       required List<dynamic> stars,
       required List<dynamic> category,
       required List<dynamic> production,
-      required List<String?> tags}) {
+      required List<String?> tags,
+      required List<double>? hotspots}) {
     return _VideoInfo(
       phUrl: phUrl,
       tzUrl: tzUrl,
@@ -66,6 +67,7 @@ class _$VideoInfoTearOff {
       category: category,
       production: production,
       tags: tags,
+      hotspots: hotspots,
     );
   }
 }
@@ -99,6 +101,7 @@ mixin _$VideoInfo {
   List<dynamic> get category => throw _privateConstructorUsedError;
   List<dynamic> get production => throw _privateConstructorUsedError;
   List<String?> get tags => throw _privateConstructorUsedError;
+  List<double>? get hotspots => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $VideoInfoCopyWith<VideoInfo> get copyWith =>
@@ -133,7 +136,8 @@ abstract class $VideoInfoCopyWith<$Res> {
       List<dynamic> stars,
       List<dynamic> category,
       List<dynamic> production,
-      List<String?> tags});
+      List<String?> tags,
+      List<double>? hotspots});
 }
 
 /// @nodoc
@@ -170,6 +174,7 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
     Object? category = freezed,
     Object? production = freezed,
     Object? tags = freezed,
+    Object? hotspots = freezed,
   }) {
     return _then(_value.copyWith(
       phUrl: phUrl == freezed
@@ -268,6 +273,10 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String?>,
+      hotspots: hotspots == freezed
+          ? _value.hotspots
+          : hotspots // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
     ));
   }
 }
@@ -302,7 +311,8 @@ abstract class _$VideoInfoCopyWith<$Res> implements $VideoInfoCopyWith<$Res> {
       List<dynamic> stars,
       List<dynamic> category,
       List<dynamic> production,
-      List<String?> tags});
+      List<String?> tags,
+      List<double>? hotspots});
 }
 
 /// @nodoc
@@ -340,6 +350,7 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
     Object? category = freezed,
     Object? production = freezed,
     Object? tags = freezed,
+    Object? hotspots = freezed,
   }) {
     return _then(_VideoInfo(
       phUrl: phUrl == freezed
@@ -438,6 +449,10 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String?>,
+      hotspots: hotspots == freezed
+          ? _value.hotspots
+          : hotspots // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
     ));
   }
 }
@@ -469,7 +484,8 @@ class _$_VideoInfo implements _VideoInfo {
       required this.stars,
       required this.category,
       required this.production,
-      required this.tags});
+      required this.tags,
+      required this.hotspots});
 
   @override
   final String phUrl;
@@ -519,10 +535,12 @@ class _$_VideoInfo implements _VideoInfo {
   final List<dynamic> production;
   @override
   final List<String?> tags;
+  @override
+  final List<double>? hotspots;
 
   @override
   String toString() {
-    return 'VideoInfo(phUrl: $phUrl, tzUrl: $tzUrl, title: $title, channelName: $channelName, channelImage: $channelImage, channelUrl: $channelUrl, channelVideoNum: $channelVideoNum, channelSubscriberNum: $channelSubscriberNum, sub: $sub, unsub: $unsub, views: $views, forPublished: $forPublished, uploadDate: $uploadDate, imageSrc: $imageSrc, goodRate: $goodRate, votesUp: $votesUp, votesDown: $votesDown, hlsUrl: $hlsUrl, hlsQuality: $hlsQuality, relatedVideo: $relatedVideo, stars: $stars, category: $category, production: $production, tags: $tags)';
+    return 'VideoInfo(phUrl: $phUrl, tzUrl: $tzUrl, title: $title, channelName: $channelName, channelImage: $channelImage, channelUrl: $channelUrl, channelVideoNum: $channelVideoNum, channelSubscriberNum: $channelSubscriberNum, sub: $sub, unsub: $unsub, views: $views, forPublished: $forPublished, uploadDate: $uploadDate, imageSrc: $imageSrc, goodRate: $goodRate, votesUp: $votesUp, votesDown: $votesDown, hlsUrl: $hlsUrl, hlsQuality: $hlsQuality, relatedVideo: $relatedVideo, stars: $stars, category: $category, production: $production, tags: $tags, hotspots: $hotspots)';
   }
 
   @override
@@ -591,7 +609,10 @@ class _$_VideoInfo implements _VideoInfo {
                 const DeepCollectionEquality()
                     .equals(other.production, production)) &&
             (identical(other.tags, tags) ||
-                const DeepCollectionEquality().equals(other.tags, tags)));
+                const DeepCollectionEquality().equals(other.tags, tags)) &&
+            (identical(other.hotspots, hotspots) ||
+                const DeepCollectionEquality()
+                    .equals(other.hotspots, hotspots)));
   }
 
   @override
@@ -620,7 +641,8 @@ class _$_VideoInfo implements _VideoInfo {
       const DeepCollectionEquality().hash(stars) ^
       const DeepCollectionEquality().hash(category) ^
       const DeepCollectionEquality().hash(production) ^
-      const DeepCollectionEquality().hash(tags);
+      const DeepCollectionEquality().hash(tags) ^
+      const DeepCollectionEquality().hash(hotspots);
 
   @JsonKey(ignore: true)
   @override
@@ -653,7 +675,8 @@ abstract class _VideoInfo implements VideoInfo {
       required List<dynamic> stars,
       required List<dynamic> category,
       required List<dynamic> production,
-      required List<String?> tags}) = _$_VideoInfo;
+      required List<String?> tags,
+      required List<double>? hotspots}) = _$_VideoInfo;
 
   @override
   String get phUrl => throw _privateConstructorUsedError;
@@ -703,6 +726,8 @@ abstract class _VideoInfo implements VideoInfo {
   List<dynamic> get production => throw _privateConstructorUsedError;
   @override
   List<String?> get tags => throw _privateConstructorUsedError;
+  @override
+  List<double>? get hotspots => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$VideoInfoCopyWith<_VideoInfo> get copyWith =>

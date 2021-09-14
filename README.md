@@ -9,19 +9,20 @@ This app is designed to comfortably watch Pornhub videos in a YouTube-like UI.
 - Show hotspot
 - Library page (Functions may be limited)
 - Faster acquisition of video information
+- Modify the code
 - Bug fixes
 
 ## About getting the video
 
 This is the same as the structure of youtube-dl.
+
 This doesn't "circumvent" any technical protection measures.
-This just plays or downloads the m3u playlist.
 
 ## ToDo List
 
 - [x] MainPage
 - [x] VideoPage
-- [ ] Show hotspot
+- [x] Show hotspot
 - [ ] Show action tags
 - [ ] Embed Stars / Category / Production / Tags
 - [ ] Like/Unlike

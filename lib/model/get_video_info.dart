@@ -139,18 +139,6 @@ class GetVideoInfo {
         }
       }
 
-/*
-      List<List<String?>> tagList = [];
-      final tagElements =
-          parse(phBody).querySelectorAll('.tagsWrapper > .item');
-      for (final tagElem in tagElements) {
-        if (tagElements != []) {
-          final tagHref = tagElem.attributes['href'];
-          tagList.add([tagElem.text, '$rootUrl$tagHref']);
-        }
-      }
-*/
-
       // サムネイルとアップロード日を取得
       final nailStart = '"thumbnailUrl": "';
       final nailStartIndex = phBody.indexOf(nailStart);
@@ -213,33 +201,58 @@ class GetVideoInfo {
         votesDown = int.parse(votesDownStr);
       }
 
+      // 抜きどころグラフのデータリストを取得
+      late List<double>? hotspots;
+      final hotspotsStart = '"hotspots":[';
+      final hotspotsStartIndex = tzBody.indexOf(hotspotsStart);
+      final hotspotsEndIndex =
+          tzBody.indexOf('],"', hotspotsStartIndex + hotspotsStart.length);
+      final hotspotsString = tzBody.substring(
+          hotspotsStartIndex + hotspotsStart.length, hotspotsEndIndex);
+
+      if (hotspotsStartIndex != -1 && hotspotsString != "") {
+        final List<String> hotspotsRaw =
+            hotspotsString.replaceAll('"', '').split(',');
+        hotspots = hotspotsRaw.map((e) => double.parse(e)).toList();
+
+        if (hotspots.length < 2) {
+          hotspots = null;
+        } else {
+          hotspots.removeAt(0);
+        }
+      } else {
+        hotspots = null;
+      }
+
       return VideoInfo(
-          phUrl: phUrl,
-          tzUrl: tzUrl,
-          title: videoTitle?.text,
-          channelName: channelName?.text,
-          channelImage: channelImage,
-          channelUrl: channelUrl,
-          channelVideoNum: channelVideoNum?.text
-              .substring(0, channelVideoNum.text.length - 4),
-          channelSubscriberNum: channelSubscriberNum?.text
-              .substring(0, channelSubscriberNum.text.length - 4),
-          sub: sub,
-          unsub: unsub,
-          views: views?.text,
-          forPublished: duration?.text,
-          uploadDate: uploadDate,
-          imageSrc: thumbnailSrc,
-          goodRate: goodRate?.text,
-          votesUp: votesUp,
-          votesDown: votesDown,
-          hlsUrl: hlsUrl,
-          hlsQuality: hlsQuality,
-          relatedVideo: relatedVideoList,
-          stars: starList,
-          category: categoryList,
-          production: productionList,
-          tags: tagList);
+        phUrl: phUrl,
+        tzUrl: tzUrl,
+        title: videoTitle?.text,
+        channelName: channelName?.text,
+        channelImage: channelImage,
+        channelUrl: channelUrl,
+        channelVideoNum:
+            channelVideoNum?.text.substring(0, channelVideoNum.text.length - 4),
+        channelSubscriberNum: channelSubscriberNum?.text
+            .substring(0, channelSubscriberNum.text.length - 4),
+        sub: sub,
+        unsub: unsub,
+        views: views?.text,
+        forPublished: duration?.text,
+        uploadDate: uploadDate,
+        imageSrc: thumbnailSrc,
+        goodRate: goodRate?.text,
+        votesUp: votesUp,
+        votesDown: votesDown,
+        hlsUrl: hlsUrl,
+        hlsQuality: hlsQuality,
+        relatedVideo: relatedVideoList,
+        stars: starList,
+        category: categoryList,
+        production: productionList,
+        tags: tagList,
+        hotspots: hotspots,
+      );
     } else {
       throw Exception('Elements is null');
     }

@@ -44,14 +44,14 @@ class _VideoPageState extends ConsumerState<VideoPage> {
     );
   }
 
-  Future<void> playhls(String hlsUrl) async {
+  Future<void> playhls(String hlsUrl, List<double>? hotspots) async {
     _videoPlayerController = VideoPlayerController.network(hlsUrl);
     _aspectRatio = _videoPlayerController.value.aspectRatio;
     await _videoPlayerController.initialize();
     _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
-        looping: false,
+        hotspots: hotspots,
         additionalOptions: (context) {
           return <OptionItem>[
             OptionItem(
@@ -72,7 +72,7 @@ class _VideoPageState extends ConsumerState<VideoPage> {
 
   Widget _videoPage(VideoInfo videoInfo) {
     return FutureBuilder(
-        future: playhls(videoInfo.hlsUrl),
+        future: playhls(videoInfo.hlsUrl, videoInfo.hotspots),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             return Column(children: [
