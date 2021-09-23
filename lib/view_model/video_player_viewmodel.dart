@@ -1,39 +1,50 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pornflakes/model/get_video_info.dart';
 
+import 'package:pornflakes/model/freezed/list_item.dart';
 import 'package:pornflakes/model/freezed/video_info.dart';
 
 final videoInfoViewModelProvider = FutureProvider<VideoInfo>((ref) async {
   return await GetVideoInfo().scraping(
-      ref.watch(phUrlProvider).state, ref.watch(videoTitleProvider).state);
+      ref.watch(phUrlProvider).state, ref.watch(listItemProvider).state);
 });
 
 final phUrlProvider = StateProvider<String>((ref) => 'PronHub_URL');
-final videoTitleProvider = StateProvider<String>((ref) => 'PronHub_Title');
+final listItemProvider = StateProvider<ListItem>((ref) => ListItem(
+      title: '',
+      channelName: '',
+      views: '',
+      duration: '',
+      goodRate: '',
+      imageSrc: '',
+      mediabookUrl: '',
+      videoUrl: '',
+    ));
 final videoInfoProvider = StateProvider<VideoInfo>((ref) => VideoInfo(
       phUrl: '',
-      tzUrl: '',
-      title: null,
-      channelName: null,
-      channelImage: null,
-      channelUrl: null,
-      channelVideoNum: null,
-      channelSubscriberNum: null,
-      sub: null,
-      unsub: null,
-      views: null,
-      forPublished: null,
+      title: '',
+      channelName: '',
+      channelIcon: '',
+      channelUrl: '',
+      channelVideoNum: '',
+      channelSubscriberNum: '',
+      sub: '',
+      unsub: '',
+      views: '',
+      forPublished: '',
       uploadDate: '',
       imageSrc: '',
-      goodRate: null,
+      goodRate: '',
       votesUp: 0,
       votesDown: 0,
+      votesUpUrl: '',
+      votesDownUrl: '',
       hlsUrl: '',
       hlsQuality: [],
-      relatedVideo: [],
+      hotspots: null,
       stars: [],
       category: [],
       production: [],
       tags: [],
-      hotspots: null,
+      relatedVideo: [],
     ));

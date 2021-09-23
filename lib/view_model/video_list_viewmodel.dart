@@ -18,9 +18,9 @@ class VideoListViewModel extends StateNotifier<ListItems> {
       state = state.copyWith(isLoading: true, error: null, init: false);
     } // この条件は追加ロード時はロード画面を表示させないため
     try {
-      final phBody = await GetBody().getBody(url, null);
+      final phBody = await GetBody().getBody(url, {});
       final newVideoList =
-          await VideoListScrape().getVideoList(url, parseId, phBody);
+          await VideoListScrape().getVideoList(parseId, phBody);
       state = state.copyWith(
           items: [...state.items, ...newVideoList],
           isLoading: false,

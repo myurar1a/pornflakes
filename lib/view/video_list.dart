@@ -9,7 +9,7 @@ Widget videoTile(BuildContext context, WidgetRef ref, ListItem videoItem) {
   return GestureDetector(
     onTap: () {
       ref.read(phUrlProvider).state = videoItem.videoUrl;
-      ref.read(videoTitleProvider).state = videoItem.title;
+      ref.read(listItemProvider).state = videoItem;
       /*
       Navigator.push(
         context,
@@ -80,7 +80,7 @@ Widget videoTile(BuildContext context, WidgetRef ref, ListItem videoItem) {
         width: double.infinity,
         padding: EdgeInsets.only(left: 7.5, bottom: 15),
         child: Text(
-          '${videoItem.channel}・${videoItem.views} 回視聴・高評価 ${videoItem.goodRate}',
+          '${videoItem.channelName}・${videoItem.views} 回視聴・高評価 ${videoItem.goodRate}',
           style: TextStyle(
             fontSize: 12,
           ),

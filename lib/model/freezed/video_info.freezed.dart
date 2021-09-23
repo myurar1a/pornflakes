@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'video_info.dart';
 
@@ -18,36 +19,36 @@ class _$VideoInfoTearOff {
 
   _VideoInfo call(
       {required String phUrl,
-      required String tzUrl,
-      required String? title,
-      required String? channelName,
-      required String? channelImage,
-      required String? channelUrl,
-      required String? channelVideoNum,
-      required String? channelSubscriberNum,
-      required String? sub,
-      required String? unsub,
-      required String? views,
-      required String? forPublished,
+      required String title,
+      required String channelName,
+      required String channelIcon,
+      required String channelUrl,
+      required String channelVideoNum,
+      required String channelSubscriberNum,
+      required String sub,
+      required String unsub,
+      required String views,
+      required String forPublished,
       required String uploadDate,
       required String imageSrc,
-      required String? goodRate,
+      required String goodRate,
       required int votesUp,
       required int votesDown,
+      required String votesUpUrl,
+      required String votesDownUrl,
       required String hlsUrl,
       required List<dynamic> hlsQuality,
-      required List<ListItem> relatedVideo,
-      required List<dynamic> stars,
-      required List<dynamic> category,
-      required List<dynamic> production,
-      required List<String?> tags,
-      required List<double>? hotspots}) {
+      required List<double>? hotspots,
+      required List<StarInfo> stars,
+      required List<CategoryInfo> category,
+      required List<ProductionInfo> production,
+      required List<String> tags,
+      required List<ListItem> relatedVideo}) {
     return _VideoInfo(
       phUrl: phUrl,
-      tzUrl: tzUrl,
       title: title,
       channelName: channelName,
-      channelImage: channelImage,
+      channelIcon: channelIcon,
       channelUrl: channelUrl,
       channelVideoNum: channelVideoNum,
       channelSubscriberNum: channelSubscriberNum,
@@ -60,14 +61,16 @@ class _$VideoInfoTearOff {
       goodRate: goodRate,
       votesUp: votesUp,
       votesDown: votesDown,
+      votesUpUrl: votesUpUrl,
+      votesDownUrl: votesDownUrl,
       hlsUrl: hlsUrl,
       hlsQuality: hlsQuality,
-      relatedVideo: relatedVideo,
+      hotspots: hotspots,
       stars: stars,
       category: category,
       production: production,
       tags: tags,
-      hotspots: hotspots,
+      relatedVideo: relatedVideo,
     );
   }
 }
@@ -78,30 +81,31 @@ const $VideoInfo = _$VideoInfoTearOff();
 /// @nodoc
 mixin _$VideoInfo {
   String get phUrl => throw _privateConstructorUsedError;
-  String get tzUrl => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get channelName => throw _privateConstructorUsedError;
-  String? get channelImage => throw _privateConstructorUsedError;
-  String? get channelUrl => throw _privateConstructorUsedError;
-  String? get channelVideoNum => throw _privateConstructorUsedError;
-  String? get channelSubscriberNum => throw _privateConstructorUsedError;
-  String? get sub => throw _privateConstructorUsedError;
-  String? get unsub => throw _privateConstructorUsedError;
-  String? get views => throw _privateConstructorUsedError;
-  String? get forPublished => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get channelName => throw _privateConstructorUsedError;
+  String get channelIcon => throw _privateConstructorUsedError;
+  String get channelUrl => throw _privateConstructorUsedError;
+  String get channelVideoNum => throw _privateConstructorUsedError;
+  String get channelSubscriberNum => throw _privateConstructorUsedError;
+  String get sub => throw _privateConstructorUsedError;
+  String get unsub => throw _privateConstructorUsedError;
+  String get views => throw _privateConstructorUsedError;
+  String get forPublished => throw _privateConstructorUsedError;
   String get uploadDate => throw _privateConstructorUsedError;
   String get imageSrc => throw _privateConstructorUsedError;
-  String? get goodRate => throw _privateConstructorUsedError;
-  int get votesUp => throw _privateConstructorUsedError; //from tz
-  int get votesDown => throw _privateConstructorUsedError; //from tz
-  String get hlsUrl => throw _privateConstructorUsedError; // from tz
-  List<dynamic> get hlsQuality => throw _privateConstructorUsedError; // from tz
-  List<ListItem> get relatedVideo => throw _privateConstructorUsedError;
-  List<dynamic> get stars => throw _privateConstructorUsedError;
-  List<dynamic> get category => throw _privateConstructorUsedError;
-  List<dynamic> get production => throw _privateConstructorUsedError;
-  List<String?> get tags => throw _privateConstructorUsedError;
+  String get goodRate => throw _privateConstructorUsedError;
+  int get votesUp => throw _privateConstructorUsedError;
+  int get votesDown => throw _privateConstructorUsedError;
+  String get votesUpUrl => throw _privateConstructorUsedError;
+  String get votesDownUrl => throw _privateConstructorUsedError;
+  String get hlsUrl => throw _privateConstructorUsedError;
+  List<dynamic> get hlsQuality => throw _privateConstructorUsedError;
   List<double>? get hotspots => throw _privateConstructorUsedError;
+  List<StarInfo> get stars => throw _privateConstructorUsedError;
+  List<CategoryInfo> get category => throw _privateConstructorUsedError;
+  List<ProductionInfo> get production => throw _privateConstructorUsedError;
+  List<String> get tags => throw _privateConstructorUsedError;
+  List<ListItem> get relatedVideo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $VideoInfoCopyWith<VideoInfo> get copyWith =>
@@ -114,30 +118,31 @@ abstract class $VideoInfoCopyWith<$Res> {
       _$VideoInfoCopyWithImpl<$Res>;
   $Res call(
       {String phUrl,
-      String tzUrl,
-      String? title,
-      String? channelName,
-      String? channelImage,
-      String? channelUrl,
-      String? channelVideoNum,
-      String? channelSubscriberNum,
-      String? sub,
-      String? unsub,
-      String? views,
-      String? forPublished,
+      String title,
+      String channelName,
+      String channelIcon,
+      String channelUrl,
+      String channelVideoNum,
+      String channelSubscriberNum,
+      String sub,
+      String unsub,
+      String views,
+      String forPublished,
       String uploadDate,
       String imageSrc,
-      String? goodRate,
+      String goodRate,
       int votesUp,
       int votesDown,
+      String votesUpUrl,
+      String votesDownUrl,
       String hlsUrl,
       List<dynamic> hlsQuality,
-      List<ListItem> relatedVideo,
-      List<dynamic> stars,
-      List<dynamic> category,
-      List<dynamic> production,
-      List<String?> tags,
-      List<double>? hotspots});
+      List<double>? hotspots,
+      List<StarInfo> stars,
+      List<CategoryInfo> category,
+      List<ProductionInfo> production,
+      List<String> tags,
+      List<ListItem> relatedVideo});
 }
 
 /// @nodoc
@@ -151,10 +156,9 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
   @override
   $Res call({
     Object? phUrl = freezed,
-    Object? tzUrl = freezed,
     Object? title = freezed,
     Object? channelName = freezed,
-    Object? channelImage = freezed,
+    Object? channelIcon = freezed,
     Object? channelUrl = freezed,
     Object? channelVideoNum = freezed,
     Object? channelSubscriberNum = freezed,
@@ -167,64 +171,62 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
     Object? goodRate = freezed,
     Object? votesUp = freezed,
     Object? votesDown = freezed,
+    Object? votesUpUrl = freezed,
+    Object? votesDownUrl = freezed,
     Object? hlsUrl = freezed,
     Object? hlsQuality = freezed,
-    Object? relatedVideo = freezed,
+    Object? hotspots = freezed,
     Object? stars = freezed,
     Object? category = freezed,
     Object? production = freezed,
     Object? tags = freezed,
-    Object? hotspots = freezed,
+    Object? relatedVideo = freezed,
   }) {
     return _then(_value.copyWith(
       phUrl: phUrl == freezed
           ? _value.phUrl
           : phUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      tzUrl: tzUrl == freezed
-          ? _value.tzUrl
-          : tzUrl // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channelName: channelName == freezed
           ? _value.channelName
           : channelName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channelImage: channelImage == freezed
-          ? _value.channelImage
-          : channelImage // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      channelIcon: channelIcon == freezed
+          ? _value.channelIcon
+          : channelIcon // ignore: cast_nullable_to_non_nullable
+              as String,
       channelUrl: channelUrl == freezed
           ? _value.channelUrl
           : channelUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channelVideoNum: channelVideoNum == freezed
           ? _value.channelVideoNum
           : channelVideoNum // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channelSubscriberNum: channelSubscriberNum == freezed
           ? _value.channelSubscriberNum
           : channelSubscriberNum // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       sub: sub == freezed
           ? _value.sub
           : sub // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       unsub: unsub == freezed
           ? _value.unsub
           : unsub // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       views: views == freezed
           ? _value.views
           : views // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       forPublished: forPublished == freezed
           ? _value.forPublished
           : forPublished // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       uploadDate: uploadDate == freezed
           ? _value.uploadDate
           : uploadDate // ignore: cast_nullable_to_non_nullable
@@ -236,7 +238,7 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
       goodRate: goodRate == freezed
           ? _value.goodRate
           : goodRate // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       votesUp: votesUp == freezed
           ? _value.votesUp
           : votesUp // ignore: cast_nullable_to_non_nullable
@@ -245,6 +247,14 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
           ? _value.votesDown
           : votesDown // ignore: cast_nullable_to_non_nullable
               as int,
+      votesUpUrl: votesUpUrl == freezed
+          ? _value.votesUpUrl
+          : votesUpUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      votesDownUrl: votesDownUrl == freezed
+          ? _value.votesDownUrl
+          : votesDownUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       hlsUrl: hlsUrl == freezed
           ? _value.hlsUrl
           : hlsUrl // ignore: cast_nullable_to_non_nullable
@@ -253,30 +263,30 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
           ? _value.hlsQuality
           : hlsQuality // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      relatedVideo: relatedVideo == freezed
-          ? _value.relatedVideo
-          : relatedVideo // ignore: cast_nullable_to_non_nullable
-              as List<ListItem>,
-      stars: stars == freezed
-          ? _value.stars
-          : stars // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
-      production: production == freezed
-          ? _value.production
-          : production // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
-      tags: tags == freezed
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
       hotspots: hotspots == freezed
           ? _value.hotspots
           : hotspots // ignore: cast_nullable_to_non_nullable
               as List<double>?,
+      stars: stars == freezed
+          ? _value.stars
+          : stars // ignore: cast_nullable_to_non_nullable
+              as List<StarInfo>,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as List<CategoryInfo>,
+      production: production == freezed
+          ? _value.production
+          : production // ignore: cast_nullable_to_non_nullable
+              as List<ProductionInfo>,
+      tags: tags == freezed
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      relatedVideo: relatedVideo == freezed
+          ? _value.relatedVideo
+          : relatedVideo // ignore: cast_nullable_to_non_nullable
+              as List<ListItem>,
     ));
   }
 }
@@ -289,30 +299,31 @@ abstract class _$VideoInfoCopyWith<$Res> implements $VideoInfoCopyWith<$Res> {
   @override
   $Res call(
       {String phUrl,
-      String tzUrl,
-      String? title,
-      String? channelName,
-      String? channelImage,
-      String? channelUrl,
-      String? channelVideoNum,
-      String? channelSubscriberNum,
-      String? sub,
-      String? unsub,
-      String? views,
-      String? forPublished,
+      String title,
+      String channelName,
+      String channelIcon,
+      String channelUrl,
+      String channelVideoNum,
+      String channelSubscriberNum,
+      String sub,
+      String unsub,
+      String views,
+      String forPublished,
       String uploadDate,
       String imageSrc,
-      String? goodRate,
+      String goodRate,
       int votesUp,
       int votesDown,
+      String votesUpUrl,
+      String votesDownUrl,
       String hlsUrl,
       List<dynamic> hlsQuality,
-      List<ListItem> relatedVideo,
-      List<dynamic> stars,
-      List<dynamic> category,
-      List<dynamic> production,
-      List<String?> tags,
-      List<double>? hotspots});
+      List<double>? hotspots,
+      List<StarInfo> stars,
+      List<CategoryInfo> category,
+      List<ProductionInfo> production,
+      List<String> tags,
+      List<ListItem> relatedVideo});
 }
 
 /// @nodoc
@@ -327,10 +338,9 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phUrl = freezed,
-    Object? tzUrl = freezed,
     Object? title = freezed,
     Object? channelName = freezed,
-    Object? channelImage = freezed,
+    Object? channelIcon = freezed,
     Object? channelUrl = freezed,
     Object? channelVideoNum = freezed,
     Object? channelSubscriberNum = freezed,
@@ -343,64 +353,62 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
     Object? goodRate = freezed,
     Object? votesUp = freezed,
     Object? votesDown = freezed,
+    Object? votesUpUrl = freezed,
+    Object? votesDownUrl = freezed,
     Object? hlsUrl = freezed,
     Object? hlsQuality = freezed,
-    Object? relatedVideo = freezed,
+    Object? hotspots = freezed,
     Object? stars = freezed,
     Object? category = freezed,
     Object? production = freezed,
     Object? tags = freezed,
-    Object? hotspots = freezed,
+    Object? relatedVideo = freezed,
   }) {
     return _then(_VideoInfo(
       phUrl: phUrl == freezed
           ? _value.phUrl
           : phUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      tzUrl: tzUrl == freezed
-          ? _value.tzUrl
-          : tzUrl // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channelName: channelName == freezed
           ? _value.channelName
           : channelName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channelImage: channelImage == freezed
-          ? _value.channelImage
-          : channelImage // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      channelIcon: channelIcon == freezed
+          ? _value.channelIcon
+          : channelIcon // ignore: cast_nullable_to_non_nullable
+              as String,
       channelUrl: channelUrl == freezed
           ? _value.channelUrl
           : channelUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channelVideoNum: channelVideoNum == freezed
           ? _value.channelVideoNum
           : channelVideoNum // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       channelSubscriberNum: channelSubscriberNum == freezed
           ? _value.channelSubscriberNum
           : channelSubscriberNum // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       sub: sub == freezed
           ? _value.sub
           : sub // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       unsub: unsub == freezed
           ? _value.unsub
           : unsub // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       views: views == freezed
           ? _value.views
           : views // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       forPublished: forPublished == freezed
           ? _value.forPublished
           : forPublished // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       uploadDate: uploadDate == freezed
           ? _value.uploadDate
           : uploadDate // ignore: cast_nullable_to_non_nullable
@@ -412,7 +420,7 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
       goodRate: goodRate == freezed
           ? _value.goodRate
           : goodRate // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       votesUp: votesUp == freezed
           ? _value.votesUp
           : votesUp // ignore: cast_nullable_to_non_nullable
@@ -421,6 +429,14 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
           ? _value.votesDown
           : votesDown // ignore: cast_nullable_to_non_nullable
               as int,
+      votesUpUrl: votesUpUrl == freezed
+          ? _value.votesUpUrl
+          : votesUpUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      votesDownUrl: votesDownUrl == freezed
+          ? _value.votesDownUrl
+          : votesDownUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       hlsUrl: hlsUrl == freezed
           ? _value.hlsUrl
           : hlsUrl // ignore: cast_nullable_to_non_nullable
@@ -429,30 +445,30 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
           ? _value.hlsQuality
           : hlsQuality // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      relatedVideo: relatedVideo == freezed
-          ? _value.relatedVideo
-          : relatedVideo // ignore: cast_nullable_to_non_nullable
-              as List<ListItem>,
-      stars: stars == freezed
-          ? _value.stars
-          : stars // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
-      production: production == freezed
-          ? _value.production
-          : production // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
-      tags: tags == freezed
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
       hotspots: hotspots == freezed
           ? _value.hotspots
           : hotspots // ignore: cast_nullable_to_non_nullable
               as List<double>?,
+      stars: stars == freezed
+          ? _value.stars
+          : stars // ignore: cast_nullable_to_non_nullable
+              as List<StarInfo>,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as List<CategoryInfo>,
+      production: production == freezed
+          ? _value.production
+          : production // ignore: cast_nullable_to_non_nullable
+              as List<ProductionInfo>,
+      tags: tags == freezed
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      relatedVideo: relatedVideo == freezed
+          ? _value.relatedVideo
+          : relatedVideo // ignore: cast_nullable_to_non_nullable
+              as List<ListItem>,
     ));
   }
 }
@@ -462,10 +478,9 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
 class _$_VideoInfo implements _VideoInfo {
   const _$_VideoInfo(
       {required this.phUrl,
-      required this.tzUrl,
       required this.title,
       required this.channelName,
-      required this.channelImage,
+      required this.channelIcon,
       required this.channelUrl,
       required this.channelVideoNum,
       required this.channelSubscriberNum,
@@ -478,69 +493,73 @@ class _$_VideoInfo implements _VideoInfo {
       required this.goodRate,
       required this.votesUp,
       required this.votesDown,
+      required this.votesUpUrl,
+      required this.votesDownUrl,
       required this.hlsUrl,
       required this.hlsQuality,
-      required this.relatedVideo,
+      required this.hotspots,
       required this.stars,
       required this.category,
       required this.production,
       required this.tags,
-      required this.hotspots});
+      required this.relatedVideo});
 
   @override
   final String phUrl;
   @override
-  final String tzUrl;
+  final String title;
   @override
-  final String? title;
+  final String channelName;
   @override
-  final String? channelName;
+  final String channelIcon;
   @override
-  final String? channelImage;
+  final String channelUrl;
   @override
-  final String? channelUrl;
+  final String channelVideoNum;
   @override
-  final String? channelVideoNum;
+  final String channelSubscriberNum;
   @override
-  final String? channelSubscriberNum;
+  final String sub;
   @override
-  final String? sub;
+  final String unsub;
   @override
-  final String? unsub;
+  final String views;
   @override
-  final String? views;
-  @override
-  final String? forPublished;
+  final String forPublished;
   @override
   final String uploadDate;
   @override
   final String imageSrc;
   @override
-  final String? goodRate;
+  final String goodRate;
   @override
   final int votesUp;
-  @override //from tz
+  @override
   final int votesDown;
-  @override //from tz
+  @override
+  final String votesUpUrl;
+  @override
+  final String votesDownUrl;
+  @override
   final String hlsUrl;
-  @override // from tz
+  @override
   final List<dynamic> hlsQuality;
-  @override // from tz
-  final List<ListItem> relatedVideo;
-  @override
-  final List<dynamic> stars;
-  @override
-  final List<dynamic> category;
-  @override
-  final List<dynamic> production;
-  @override
-  final List<String?> tags;
   @override
   final List<double>? hotspots;
+  @override
+  final List<StarInfo> stars;
+  @override
+  final List<CategoryInfo> category;
+  @override
+  final List<ProductionInfo> production;
+  @override
+  final List<String> tags;
+  @override
+  final List<ListItem> relatedVideo;
 
   @override
   String toString() {
-    return 'VideoInfo(phUrl: $phUrl, tzUrl: $tzUrl, title: $title, channelName: $channelName, channelImage: $channelImage, channelUrl: $channelUrl, channelVideoNum: $channelVideoNum, channelSubscriberNum: $channelSubscriberNum, sub: $sub, unsub: $unsub, views: $views, forPublished: $forPublished, uploadDate: $uploadDate, imageSrc: $imageSrc, goodRate: $goodRate, votesUp: $votesUp, votesDown: $votesDown, hlsUrl: $hlsUrl, hlsQuality: $hlsQuality, relatedVideo: $relatedVideo, stars: $stars, category: $category, production: $production, tags: $tags, hotspots: $hotspots)';
+    return 'VideoInfo(phUrl: $phUrl, title: $title, channelName: $channelName, channelIcon: $channelIcon, channelUrl: $channelUrl, channelVideoNum: $channelVideoNum, channelSubscriberNum: $channelSubscriberNum, sub: $sub, unsub: $unsub, views: $views, forPublished: $forPublished, uploadDate: $uploadDate, imageSrc: $imageSrc, goodRate: $goodRate, votesUp: $votesUp, votesDown: $votesDown, votesUpUrl: $votesUpUrl, votesDownUrl: $votesDownUrl, hlsUrl: $hlsUrl, hlsQuality: $hlsQuality, hotspots: $hotspots, stars: $stars, category: $category, production: $production, tags: $tags, relatedVideo: $relatedVideo)';
   }
 
   @override
@@ -549,16 +568,14 @@ class _$_VideoInfo implements _VideoInfo {
         (other is _VideoInfo &&
             (identical(other.phUrl, phUrl) ||
                 const DeepCollectionEquality().equals(other.phUrl, phUrl)) &&
-            (identical(other.tzUrl, tzUrl) ||
-                const DeepCollectionEquality().equals(other.tzUrl, tzUrl)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.channelName, channelName) ||
                 const DeepCollectionEquality()
                     .equals(other.channelName, channelName)) &&
-            (identical(other.channelImage, channelImage) ||
+            (identical(other.channelIcon, channelIcon) ||
                 const DeepCollectionEquality()
-                    .equals(other.channelImage, channelImage)) &&
+                    .equals(other.channelIcon, channelIcon)) &&
             (identical(other.channelUrl, channelUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.channelUrl, channelUrl)) &&
@@ -592,14 +609,20 @@ class _$_VideoInfo implements _VideoInfo {
             (identical(other.votesDown, votesDown) ||
                 const DeepCollectionEquality()
                     .equals(other.votesDown, votesDown)) &&
+            (identical(other.votesUpUrl, votesUpUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.votesUpUrl, votesUpUrl)) &&
+            (identical(other.votesDownUrl, votesDownUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.votesDownUrl, votesDownUrl)) &&
             (identical(other.hlsUrl, hlsUrl) ||
                 const DeepCollectionEquality().equals(other.hlsUrl, hlsUrl)) &&
             (identical(other.hlsQuality, hlsQuality) ||
                 const DeepCollectionEquality()
                     .equals(other.hlsQuality, hlsQuality)) &&
-            (identical(other.relatedVideo, relatedVideo) ||
+            (identical(other.hotspots, hotspots) ||
                 const DeepCollectionEquality()
-                    .equals(other.relatedVideo, relatedVideo)) &&
+                    .equals(other.hotspots, hotspots)) &&
             (identical(other.stars, stars) ||
                 const DeepCollectionEquality().equals(other.stars, stars)) &&
             (identical(other.category, category) ||
@@ -610,19 +633,17 @@ class _$_VideoInfo implements _VideoInfo {
                     .equals(other.production, production)) &&
             (identical(other.tags, tags) ||
                 const DeepCollectionEquality().equals(other.tags, tags)) &&
-            (identical(other.hotspots, hotspots) ||
-                const DeepCollectionEquality()
-                    .equals(other.hotspots, hotspots)));
+            (identical(other.relatedVideo, relatedVideo) ||
+                const DeepCollectionEquality().equals(other.relatedVideo, relatedVideo)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(phUrl) ^
-      const DeepCollectionEquality().hash(tzUrl) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(channelName) ^
-      const DeepCollectionEquality().hash(channelImage) ^
+      const DeepCollectionEquality().hash(channelIcon) ^
       const DeepCollectionEquality().hash(channelUrl) ^
       const DeepCollectionEquality().hash(channelVideoNum) ^
       const DeepCollectionEquality().hash(channelSubscriberNum) ^
@@ -635,14 +656,16 @@ class _$_VideoInfo implements _VideoInfo {
       const DeepCollectionEquality().hash(goodRate) ^
       const DeepCollectionEquality().hash(votesUp) ^
       const DeepCollectionEquality().hash(votesDown) ^
+      const DeepCollectionEquality().hash(votesUpUrl) ^
+      const DeepCollectionEquality().hash(votesDownUrl) ^
       const DeepCollectionEquality().hash(hlsUrl) ^
       const DeepCollectionEquality().hash(hlsQuality) ^
-      const DeepCollectionEquality().hash(relatedVideo) ^
+      const DeepCollectionEquality().hash(hotspots) ^
       const DeepCollectionEquality().hash(stars) ^
       const DeepCollectionEquality().hash(category) ^
       const DeepCollectionEquality().hash(production) ^
       const DeepCollectionEquality().hash(tags) ^
-      const DeepCollectionEquality().hash(hotspots);
+      const DeepCollectionEquality().hash(relatedVideo);
 
   @JsonKey(ignore: true)
   @override
@@ -653,81 +676,84 @@ class _$_VideoInfo implements _VideoInfo {
 abstract class _VideoInfo implements VideoInfo {
   const factory _VideoInfo(
       {required String phUrl,
-      required String tzUrl,
-      required String? title,
-      required String? channelName,
-      required String? channelImage,
-      required String? channelUrl,
-      required String? channelVideoNum,
-      required String? channelSubscriberNum,
-      required String? sub,
-      required String? unsub,
-      required String? views,
-      required String? forPublished,
+      required String title,
+      required String channelName,
+      required String channelIcon,
+      required String channelUrl,
+      required String channelVideoNum,
+      required String channelSubscriberNum,
+      required String sub,
+      required String unsub,
+      required String views,
+      required String forPublished,
       required String uploadDate,
       required String imageSrc,
-      required String? goodRate,
+      required String goodRate,
       required int votesUp,
       required int votesDown,
+      required String votesUpUrl,
+      required String votesDownUrl,
       required String hlsUrl,
       required List<dynamic> hlsQuality,
-      required List<ListItem> relatedVideo,
-      required List<dynamic> stars,
-      required List<dynamic> category,
-      required List<dynamic> production,
-      required List<String?> tags,
-      required List<double>? hotspots}) = _$_VideoInfo;
+      required List<double>? hotspots,
+      required List<StarInfo> stars,
+      required List<CategoryInfo> category,
+      required List<ProductionInfo> production,
+      required List<String> tags,
+      required List<ListItem> relatedVideo}) = _$_VideoInfo;
 
   @override
   String get phUrl => throw _privateConstructorUsedError;
   @override
-  String get tzUrl => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   @override
-  String? get title => throw _privateConstructorUsedError;
+  String get channelName => throw _privateConstructorUsedError;
   @override
-  String? get channelName => throw _privateConstructorUsedError;
+  String get channelIcon => throw _privateConstructorUsedError;
   @override
-  String? get channelImage => throw _privateConstructorUsedError;
+  String get channelUrl => throw _privateConstructorUsedError;
   @override
-  String? get channelUrl => throw _privateConstructorUsedError;
+  String get channelVideoNum => throw _privateConstructorUsedError;
   @override
-  String? get channelVideoNum => throw _privateConstructorUsedError;
+  String get channelSubscriberNum => throw _privateConstructorUsedError;
   @override
-  String? get channelSubscriberNum => throw _privateConstructorUsedError;
+  String get sub => throw _privateConstructorUsedError;
   @override
-  String? get sub => throw _privateConstructorUsedError;
+  String get unsub => throw _privateConstructorUsedError;
   @override
-  String? get unsub => throw _privateConstructorUsedError;
+  String get views => throw _privateConstructorUsedError;
   @override
-  String? get views => throw _privateConstructorUsedError;
-  @override
-  String? get forPublished => throw _privateConstructorUsedError;
+  String get forPublished => throw _privateConstructorUsedError;
   @override
   String get uploadDate => throw _privateConstructorUsedError;
   @override
   String get imageSrc => throw _privateConstructorUsedError;
   @override
-  String? get goodRate => throw _privateConstructorUsedError;
+  String get goodRate => throw _privateConstructorUsedError;
   @override
   int get votesUp => throw _privateConstructorUsedError;
-  @override //from tz
+  @override
   int get votesDown => throw _privateConstructorUsedError;
-  @override //from tz
+  @override
+  String get votesUpUrl => throw _privateConstructorUsedError;
+  @override
+  String get votesDownUrl => throw _privateConstructorUsedError;
+  @override
   String get hlsUrl => throw _privateConstructorUsedError;
-  @override // from tz
+  @override
   List<dynamic> get hlsQuality => throw _privateConstructorUsedError;
-  @override // from tz
-  List<ListItem> get relatedVideo => throw _privateConstructorUsedError;
-  @override
-  List<dynamic> get stars => throw _privateConstructorUsedError;
-  @override
-  List<dynamic> get category => throw _privateConstructorUsedError;
-  @override
-  List<dynamic> get production => throw _privateConstructorUsedError;
-  @override
-  List<String?> get tags => throw _privateConstructorUsedError;
   @override
   List<double>? get hotspots => throw _privateConstructorUsedError;
+  @override
+  List<StarInfo> get stars => throw _privateConstructorUsedError;
+  @override
+  List<CategoryInfo> get category => throw _privateConstructorUsedError;
+  @override
+  List<ProductionInfo> get production => throw _privateConstructorUsedError;
+  @override
+  List<String> get tags => throw _privateConstructorUsedError;
+  @override
+  List<ListItem> get relatedVideo => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$VideoInfoCopyWith<_VideoInfo> get copyWith =>
@@ -1210,149 +1236,5 @@ abstract class _ProductionInfo implements ProductionInfo {
   @override
   @JsonKey(ignore: true)
   _$ProductionInfoCopyWith<_ProductionInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-class _$TagInfoTearOff {
-  const _$TagInfoTearOff();
-
-  _TagInfo call({required String? tagName, required String? tagHref}) {
-    return _TagInfo(
-      tagName: tagName,
-      tagHref: tagHref,
-    );
-  }
-}
-
-/// @nodoc
-const $TagInfo = _$TagInfoTearOff();
-
-/// @nodoc
-mixin _$TagInfo {
-  String? get tagName => throw _privateConstructorUsedError;
-  String? get tagHref => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $TagInfoCopyWith<TagInfo> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TagInfoCopyWith<$Res> {
-  factory $TagInfoCopyWith(TagInfo value, $Res Function(TagInfo) then) =
-      _$TagInfoCopyWithImpl<$Res>;
-  $Res call({String? tagName, String? tagHref});
-}
-
-/// @nodoc
-class _$TagInfoCopyWithImpl<$Res> implements $TagInfoCopyWith<$Res> {
-  _$TagInfoCopyWithImpl(this._value, this._then);
-
-  final TagInfo _value;
-  // ignore: unused_field
-  final $Res Function(TagInfo) _then;
-
-  @override
-  $Res call({
-    Object? tagName = freezed,
-    Object? tagHref = freezed,
-  }) {
-    return _then(_value.copyWith(
-      tagName: tagName == freezed
-          ? _value.tagName
-          : tagName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tagHref: tagHref == freezed
-          ? _value.tagHref
-          : tagHref // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$TagInfoCopyWith<$Res> implements $TagInfoCopyWith<$Res> {
-  factory _$TagInfoCopyWith(_TagInfo value, $Res Function(_TagInfo) then) =
-      __$TagInfoCopyWithImpl<$Res>;
-  @override
-  $Res call({String? tagName, String? tagHref});
-}
-
-/// @nodoc
-class __$TagInfoCopyWithImpl<$Res> extends _$TagInfoCopyWithImpl<$Res>
-    implements _$TagInfoCopyWith<$Res> {
-  __$TagInfoCopyWithImpl(_TagInfo _value, $Res Function(_TagInfo) _then)
-      : super(_value, (v) => _then(v as _TagInfo));
-
-  @override
-  _TagInfo get _value => super._value as _TagInfo;
-
-  @override
-  $Res call({
-    Object? tagName = freezed,
-    Object? tagHref = freezed,
-  }) {
-    return _then(_TagInfo(
-      tagName: tagName == freezed
-          ? _value.tagName
-          : tagName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tagHref: tagHref == freezed
-          ? _value.tagHref
-          : tagHref // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TagInfo implements _TagInfo {
-  const _$_TagInfo({required this.tagName, required this.tagHref});
-
-  @override
-  final String? tagName;
-  @override
-  final String? tagHref;
-
-  @override
-  String toString() {
-    return 'TagInfo(tagName: $tagName, tagHref: $tagHref)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _TagInfo &&
-            (identical(other.tagName, tagName) ||
-                const DeepCollectionEquality()
-                    .equals(other.tagName, tagName)) &&
-            (identical(other.tagHref, tagHref) ||
-                const DeepCollectionEquality().equals(other.tagHref, tagHref)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(tagName) ^
-      const DeepCollectionEquality().hash(tagHref);
-
-  @JsonKey(ignore: true)
-  @override
-  _$TagInfoCopyWith<_TagInfo> get copyWith =>
-      __$TagInfoCopyWithImpl<_TagInfo>(this, _$identity);
-}
-
-abstract class _TagInfo implements TagInfo {
-  const factory _TagInfo({required String? tagName, required String? tagHref}) =
-      _$_TagInfo;
-
-  @override
-  String? get tagName => throw _privateConstructorUsedError;
-  @override
-  String? get tagHref => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$TagInfoCopyWith<_TagInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

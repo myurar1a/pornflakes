@@ -5,7 +5,7 @@ part 'list_item.freezed.dart';
 abstract class ListItem with _$ListItem {
   const factory ListItem({
     required final String title,
-    required final String channel,
+    required final String channelName,
     required final String views,
     required final String duration,
     required final String goodRate,

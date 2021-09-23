@@ -6,30 +6,31 @@ part 'video_info.freezed.dart';
 abstract class VideoInfo with _$VideoInfo {
   const factory VideoInfo({
     required final String phUrl,
-    required final String tzUrl,
-    required final String? title,
-    required final String? channelName,
-    required final String? channelImage,
-    required final String? channelUrl,
-    required final String? channelVideoNum,
-    required final String? channelSubscriberNum,
-    required final String? sub,
-    required final String? unsub,
-    required final String? views,
-    required final String? forPublished,
+    required final String title,
+    required final String channelName,
+    required final String channelIcon,
+    required final String channelUrl,
+    required final String channelVideoNum,
+    required final String channelSubscriberNum,
+    required final String sub,
+    required final String unsub,
+    required final String views,
+    required final String forPublished,
     required final String uploadDate,
     required final String imageSrc,
-    required final String? goodRate,
-    required final int votesUp, //from tz
-    required final int votesDown, //from tz
-    required final String hlsUrl, // from tz
-    required final List hlsQuality, // from tz
-    required final List<ListItem> relatedVideo,
-    required final List stars,
-    required final List category,
-    required final List production,
-    required final List<String?> tags,
+    required final String goodRate,
+    required final int votesUp,
+    required final int votesDown,
+    required final String votesUpUrl,
+    required final String votesDownUrl,
+    required final String hlsUrl,
+    required final List hlsQuality,
     required final List<double>? hotspots,
+    required final List<StarInfo> stars,
+    required final List<CategoryInfo> category,
+    required final List<ProductionInfo> production,
+    required final List<String> tags,
+    required final List<ListItem> relatedVideo,
   }) = _VideoInfo;
 }
 
@@ -56,12 +57,4 @@ abstract class ProductionInfo with _$ProductionInfo {
     required final String? productionName,
     required final String? productionHref,
   }) = _ProductionInfo;
-}
-
-@freezed
-abstract class TagInfo with _$TagInfo {
-  const factory TagInfo({
-    required final String? tagName,
-    required final String? tagHref,
-  }) = _TagInfo;
 }

@@ -3,8 +3,7 @@ import 'package:html/parser.dart';
 import 'freezed/list_item.dart';
 
 class VideoListScrape {
-  Future<List<ListItem>> getVideoList(
-      String url, String parseId, String phBody) async {
+  Future<List<ListItem>> getVideoList(String parseId, String phBody) async {
     List<ListItem> newVideoList = [];
 
     // 動画リストのスクレイピング
@@ -18,31 +17,22 @@ class VideoListScrape {
       final views = elem.querySelector('.views > var')!;
       final duration = elem.querySelector('.duration')!;
       final goodRate = elem.querySelector('.value')!;
-      final imageSrc =
-          elem.querySelector('.videoPreviewBg > img')!.attributes['data-src'];
-      final mediabookUrl = elem
-          .querySelector('.videoPreviewBg > img')!
-          .attributes['data-mediabook'];
-      final videoaherf = elem.querySelector('a')!.attributes['href'];
+      final thumbnail = elem.querySelector('.videoPreviewBg > img')!;
+      final imageSrc = thumbnail.attributes['data-src']!;
+      final mediabookUrl = thumbnail.attributes['data-mediabook']!;
+      final videoaherf = elem.querySelector('a')!.attributes['href']!;
       final videoUrl = 'https://jp.pornhub.com$videoaherf';
 
       // nullable から non-nullable へ変換し、リストへ追加
-      if ((imageSrc != null) &&
-          (mediabookUrl != null) &&
-          (videoaherf != null)) {
-        newVideoList.add(ListItem(
-            title: videoTitle.text.trim(),
-            channel: channelName.text.trim(),
-            views: views.text,
-            duration: duration.text,
-            goodRate: goodRate.text,
-            imageSrc: imageSrc,
-            mediabookUrl: mediabookUrl,
-            videoUrl: videoUrl));
-        print(duration.text);
-      } else {
-        print('Error. thumbnail or thumbnail_video or video_url is empty.');
-      }
+      newVideoList.add(ListItem(
+          title: videoTitle.text.trim(),
+          channelName: channelName.text.trim(),
+          views: views.text,
+          duration: duration.text,
+          goodRate: goodRate.text,
+          imageSrc: imageSrc,
+          mediabookUrl: mediabookUrl,
+          videoUrl: videoUrl));
     }
     return newVideoList;
   }

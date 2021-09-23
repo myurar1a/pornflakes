@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'list_item.dart';
 
@@ -18,7 +19,7 @@ class _$ListItemTearOff {
 
   _ListItem call(
       {required String title,
-      required String channel,
+      required String channelName,
       required String views,
       required String duration,
       required String goodRate,
@@ -27,7 +28,7 @@ class _$ListItemTearOff {
       required String videoUrl}) {
     return _ListItem(
       title: title,
-      channel: channel,
+      channelName: channelName,
       views: views,
       duration: duration,
       goodRate: goodRate,
@@ -44,7 +45,7 @@ const $ListItem = _$ListItemTearOff();
 /// @nodoc
 mixin _$ListItem {
   String get title => throw _privateConstructorUsedError;
-  String get channel => throw _privateConstructorUsedError;
+  String get channelName => throw _privateConstructorUsedError;
   String get views => throw _privateConstructorUsedError;
   String get duration => throw _privateConstructorUsedError;
   String get goodRate => throw _privateConstructorUsedError;
@@ -63,7 +64,7 @@ abstract class $ListItemCopyWith<$Res> {
       _$ListItemCopyWithImpl<$Res>;
   $Res call(
       {String title,
-      String channel,
+      String channelName,
       String views,
       String duration,
       String goodRate,
@@ -83,7 +84,7 @@ class _$ListItemCopyWithImpl<$Res> implements $ListItemCopyWith<$Res> {
   @override
   $Res call({
     Object? title = freezed,
-    Object? channel = freezed,
+    Object? channelName = freezed,
     Object? views = freezed,
     Object? duration = freezed,
     Object? goodRate = freezed,
@@ -96,9 +97,9 @@ class _$ListItemCopyWithImpl<$Res> implements $ListItemCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      channel: channel == freezed
-          ? _value.channel
-          : channel // ignore: cast_nullable_to_non_nullable
+      channelName: channelName == freezed
+          ? _value.channelName
+          : channelName // ignore: cast_nullable_to_non_nullable
               as String,
       views: views == freezed
           ? _value.views
@@ -135,7 +136,7 @@ abstract class _$ListItemCopyWith<$Res> implements $ListItemCopyWith<$Res> {
   @override
   $Res call(
       {String title,
-      String channel,
+      String channelName,
       String views,
       String duration,
       String goodRate,
@@ -156,7 +157,7 @@ class __$ListItemCopyWithImpl<$Res> extends _$ListItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
-    Object? channel = freezed,
+    Object? channelName = freezed,
     Object? views = freezed,
     Object? duration = freezed,
     Object? goodRate = freezed,
@@ -169,9 +170,9 @@ class __$ListItemCopyWithImpl<$Res> extends _$ListItemCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      channel: channel == freezed
-          ? _value.channel
-          : channel // ignore: cast_nullable_to_non_nullable
+      channelName: channelName == freezed
+          ? _value.channelName
+          : channelName // ignore: cast_nullable_to_non_nullable
               as String,
       views: views == freezed
           ? _value.views
@@ -206,7 +207,7 @@ class __$ListItemCopyWithImpl<$Res> extends _$ListItemCopyWithImpl<$Res>
 class _$_ListItem implements _ListItem {
   const _$_ListItem(
       {required this.title,
-      required this.channel,
+      required this.channelName,
       required this.views,
       required this.duration,
       required this.goodRate,
@@ -217,7 +218,7 @@ class _$_ListItem implements _ListItem {
   @override
   final String title;
   @override
-  final String channel;
+  final String channelName;
   @override
   final String views;
   @override
@@ -233,7 +234,7 @@ class _$_ListItem implements _ListItem {
 
   @override
   String toString() {
-    return 'ListItem(title: $title, channel: $channel, views: $views, duration: $duration, goodRate: $goodRate, imageSrc: $imageSrc, mediabookUrl: $mediabookUrl, videoUrl: $videoUrl)';
+    return 'ListItem(title: $title, channelName: $channelName, views: $views, duration: $duration, goodRate: $goodRate, imageSrc: $imageSrc, mediabookUrl: $mediabookUrl, videoUrl: $videoUrl)';
   }
 
   @override
@@ -242,9 +243,9 @@ class _$_ListItem implements _ListItem {
         (other is _ListItem &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.channel, channel) ||
+            (identical(other.channelName, channelName) ||
                 const DeepCollectionEquality()
-                    .equals(other.channel, channel)) &&
+                    .equals(other.channelName, channelName)) &&
             (identical(other.views, views) ||
                 const DeepCollectionEquality().equals(other.views, views)) &&
             (identical(other.duration, duration) ||
@@ -268,7 +269,7 @@ class _$_ListItem implements _ListItem {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(channel) ^
+      const DeepCollectionEquality().hash(channelName) ^
       const DeepCollectionEquality().hash(views) ^
       const DeepCollectionEquality().hash(duration) ^
       const DeepCollectionEquality().hash(goodRate) ^
@@ -285,7 +286,7 @@ class _$_ListItem implements _ListItem {
 abstract class _ListItem implements ListItem {
   const factory _ListItem(
       {required String title,
-      required String channel,
+      required String channelName,
       required String views,
       required String duration,
       required String goodRate,
@@ -296,7 +297,7 @@ abstract class _ListItem implements ListItem {
   @override
   String get title => throw _privateConstructorUsedError;
   @override
-  String get channel => throw _privateConstructorUsedError;
+  String get channelName => throw _privateConstructorUsedError;
   @override
   String get views => throw _privateConstructorUsedError;
   @override

@@ -51,8 +51,10 @@ class _VideoPageState extends ConsumerState<VideoPage> {
     _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
-        materialProgressColors:
-            ChewieProgressColors(handleColor: Color.fromRGBO(255, 153, 0, 1.0)),
+        materialProgressColors: ChewieProgressColors(
+          playedColor: Color.fromRGBO(255, 153, 0, 1.0),
+          handleColor: Color.fromRGBO(255, 153, 0, 1.0),
+        ),
         hotspots: hotspots,
         additionalOptions: (context) {
           return <OptionItem>[
@@ -258,7 +260,7 @@ class _VideoPageState extends ConsumerState<VideoPage> {
           leading: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.network(
-              '${videoInfo.channelImage}',
+              '${videoInfo.channelIcon}',
               width: 40,
               height: 40,
             ),

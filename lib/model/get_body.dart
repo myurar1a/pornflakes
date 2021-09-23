@@ -8,15 +8,11 @@ class GetBody {
   GetBody._internal();
   static final GetBody _instance = GetBody._internal();
 
-  Future<String> getBody(String url, List<List<String>>? cookie) async {
+  Future<String> getBody(String url, Map<String, String> cookie) async {
     try {
-      //await Future.delayed(Duration(seconds: 1), () {});
       final request = await HttpClient().getUrl(Uri.parse(url));
-      if (cookie != null) {
-        for (var i = 0; i < cookie.length; i++) {
-          List<String> child = cookie[i];
-          request.cookies.add(Cookie(child[0], child[1]));
-        }
+      if (cookie.isNotEmpty) {
+        cookie.forEach((key, value) => request.cookies.add(Cookie(key, value)));
       }
       final response = await request.close();
       return _parseResponse(
@@ -37,14 +33,11 @@ class GetBody {
 
   // Response が欲しいという場合もあったので、追加記載
   Future<HttpClientResponse> getRes(
-      String url, List<List<String>>? cookie) async {
+      String url, Map<String, String> cookie) async {
     try {
       final request = await HttpClient().getUrl(Uri.parse(url));
-      if (cookie != null) {
-        for (var i = 0; i < cookie.length; i++) {
-          List<String> child = cookie[i];
-          request.cookies.add(Cookie(child[0], child[1]));
-        }
+      if (cookie.isNotEmpty) {
+        cookie.forEach((key, value) => request.cookies.add(Cookie(key, value)));
       }
       final response = await request.close();
       return _notParseResponse(response.statusCode, response);
