@@ -39,8 +39,9 @@ final videoInfoProvider = StateProvider<VideoInfo>((ref) => VideoInfo(
       votesDown: 0,
       votesUpUrl: '',
       votesDownUrl: '',
-      hlsUrl: '',
-      hlsQuality: [],
+      hlsInfo: {
+        0: {'': ''}
+      },
       hotspots: null,
       stars: [],
       category: [],

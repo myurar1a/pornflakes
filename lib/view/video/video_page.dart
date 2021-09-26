@@ -76,7 +76,7 @@ class _VideoPageState extends ConsumerState<VideoPage> {
 
   Widget _videoPage(VideoInfo videoInfo) {
     return FutureBuilder(
-        future: playhls(videoInfo.hlsUrl, videoInfo.hotspots),
+        future: playhls(videoInfo.hlsInfo[1]!['hlsUrl']!, videoInfo.hotspots),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             return Column(children: [

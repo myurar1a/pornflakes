@@ -36,8 +36,7 @@ class _$VideoInfoTearOff {
       required int votesDown,
       required String votesUpUrl,
       required String votesDownUrl,
-      required String hlsUrl,
-      required List<dynamic> hlsQuality,
+      required Map<int, Map<String, String>> hlsInfo,
       required List<double>? hotspots,
       required List<StarInfo> stars,
       required List<CategoryInfo> category,
@@ -63,8 +62,7 @@ class _$VideoInfoTearOff {
       votesDown: votesDown,
       votesUpUrl: votesUpUrl,
       votesDownUrl: votesDownUrl,
-      hlsUrl: hlsUrl,
-      hlsQuality: hlsQuality,
+      hlsInfo: hlsInfo,
       hotspots: hotspots,
       stars: stars,
       category: category,
@@ -98,8 +96,8 @@ mixin _$VideoInfo {
   int get votesDown => throw _privateConstructorUsedError;
   String get votesUpUrl => throw _privateConstructorUsedError;
   String get votesDownUrl => throw _privateConstructorUsedError;
-  String get hlsUrl => throw _privateConstructorUsedError;
-  List<dynamic> get hlsQuality => throw _privateConstructorUsedError;
+  Map<int, Map<String, String>> get hlsInfo =>
+      throw _privateConstructorUsedError;
   List<double>? get hotspots => throw _privateConstructorUsedError;
   List<StarInfo> get stars => throw _privateConstructorUsedError;
   List<CategoryInfo> get category => throw _privateConstructorUsedError;
@@ -135,8 +133,7 @@ abstract class $VideoInfoCopyWith<$Res> {
       int votesDown,
       String votesUpUrl,
       String votesDownUrl,
-      String hlsUrl,
-      List<dynamic> hlsQuality,
+      Map<int, Map<String, String>> hlsInfo,
       List<double>? hotspots,
       List<StarInfo> stars,
       List<CategoryInfo> category,
@@ -173,8 +170,7 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
     Object? votesDown = freezed,
     Object? votesUpUrl = freezed,
     Object? votesDownUrl = freezed,
-    Object? hlsUrl = freezed,
-    Object? hlsQuality = freezed,
+    Object? hlsInfo = freezed,
     Object? hotspots = freezed,
     Object? stars = freezed,
     Object? category = freezed,
@@ -255,14 +251,10 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
           ? _value.votesDownUrl
           : votesDownUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      hlsUrl: hlsUrl == freezed
-          ? _value.hlsUrl
-          : hlsUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      hlsQuality: hlsQuality == freezed
-          ? _value.hlsQuality
-          : hlsQuality // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+      hlsInfo: hlsInfo == freezed
+          ? _value.hlsInfo
+          : hlsInfo // ignore: cast_nullable_to_non_nullable
+              as Map<int, Map<String, String>>,
       hotspots: hotspots == freezed
           ? _value.hotspots
           : hotspots // ignore: cast_nullable_to_non_nullable
@@ -316,8 +308,7 @@ abstract class _$VideoInfoCopyWith<$Res> implements $VideoInfoCopyWith<$Res> {
       int votesDown,
       String votesUpUrl,
       String votesDownUrl,
-      String hlsUrl,
-      List<dynamic> hlsQuality,
+      Map<int, Map<String, String>> hlsInfo,
       List<double>? hotspots,
       List<StarInfo> stars,
       List<CategoryInfo> category,
@@ -355,8 +346,7 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
     Object? votesDown = freezed,
     Object? votesUpUrl = freezed,
     Object? votesDownUrl = freezed,
-    Object? hlsUrl = freezed,
-    Object? hlsQuality = freezed,
+    Object? hlsInfo = freezed,
     Object? hotspots = freezed,
     Object? stars = freezed,
     Object? category = freezed,
@@ -437,14 +427,10 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
           ? _value.votesDownUrl
           : votesDownUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      hlsUrl: hlsUrl == freezed
-          ? _value.hlsUrl
-          : hlsUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      hlsQuality: hlsQuality == freezed
-          ? _value.hlsQuality
-          : hlsQuality // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+      hlsInfo: hlsInfo == freezed
+          ? _value.hlsInfo
+          : hlsInfo // ignore: cast_nullable_to_non_nullable
+              as Map<int, Map<String, String>>,
       hotspots: hotspots == freezed
           ? _value.hotspots
           : hotspots // ignore: cast_nullable_to_non_nullable
@@ -495,8 +481,7 @@ class _$_VideoInfo implements _VideoInfo {
       required this.votesDown,
       required this.votesUpUrl,
       required this.votesDownUrl,
-      required this.hlsUrl,
-      required this.hlsQuality,
+      required this.hlsInfo,
       required this.hotspots,
       required this.stars,
       required this.category,
@@ -541,9 +526,7 @@ class _$_VideoInfo implements _VideoInfo {
   @override
   final String votesDownUrl;
   @override
-  final String hlsUrl;
-  @override
-  final List<dynamic> hlsQuality;
+  final Map<int, Map<String, String>> hlsInfo;
   @override
   final List<double>? hotspots;
   @override
@@ -559,7 +542,7 @@ class _$_VideoInfo implements _VideoInfo {
 
   @override
   String toString() {
-    return 'VideoInfo(phUrl: $phUrl, title: $title, channelName: $channelName, channelIcon: $channelIcon, channelUrl: $channelUrl, channelVideoNum: $channelVideoNum, channelSubscriberNum: $channelSubscriberNum, sub: $sub, unsub: $unsub, views: $views, forPublished: $forPublished, uploadDate: $uploadDate, imageSrc: $imageSrc, goodRate: $goodRate, votesUp: $votesUp, votesDown: $votesDown, votesUpUrl: $votesUpUrl, votesDownUrl: $votesDownUrl, hlsUrl: $hlsUrl, hlsQuality: $hlsQuality, hotspots: $hotspots, stars: $stars, category: $category, production: $production, tags: $tags, relatedVideo: $relatedVideo)';
+    return 'VideoInfo(phUrl: $phUrl, title: $title, channelName: $channelName, channelIcon: $channelIcon, channelUrl: $channelUrl, channelVideoNum: $channelVideoNum, channelSubscriberNum: $channelSubscriberNum, sub: $sub, unsub: $unsub, views: $views, forPublished: $forPublished, uploadDate: $uploadDate, imageSrc: $imageSrc, goodRate: $goodRate, votesUp: $votesUp, votesDown: $votesDown, votesUpUrl: $votesUpUrl, votesDownUrl: $votesDownUrl, hlsInfo: $hlsInfo, hotspots: $hotspots, stars: $stars, category: $category, production: $production, tags: $tags, relatedVideo: $relatedVideo)';
   }
 
   @override
@@ -615,11 +598,9 @@ class _$_VideoInfo implements _VideoInfo {
             (identical(other.votesDownUrl, votesDownUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.votesDownUrl, votesDownUrl)) &&
-            (identical(other.hlsUrl, hlsUrl) ||
-                const DeepCollectionEquality().equals(other.hlsUrl, hlsUrl)) &&
-            (identical(other.hlsQuality, hlsQuality) ||
+            (identical(other.hlsInfo, hlsInfo) ||
                 const DeepCollectionEquality()
-                    .equals(other.hlsQuality, hlsQuality)) &&
+                    .equals(other.hlsInfo, hlsInfo)) &&
             (identical(other.hotspots, hotspots) ||
                 const DeepCollectionEquality()
                     .equals(other.hotspots, hotspots)) &&
@@ -634,7 +615,8 @@ class _$_VideoInfo implements _VideoInfo {
             (identical(other.tags, tags) ||
                 const DeepCollectionEquality().equals(other.tags, tags)) &&
             (identical(other.relatedVideo, relatedVideo) ||
-                const DeepCollectionEquality().equals(other.relatedVideo, relatedVideo)));
+                const DeepCollectionEquality()
+                    .equals(other.relatedVideo, relatedVideo)));
   }
 
   @override
@@ -658,8 +640,7 @@ class _$_VideoInfo implements _VideoInfo {
       const DeepCollectionEquality().hash(votesDown) ^
       const DeepCollectionEquality().hash(votesUpUrl) ^
       const DeepCollectionEquality().hash(votesDownUrl) ^
-      const DeepCollectionEquality().hash(hlsUrl) ^
-      const DeepCollectionEquality().hash(hlsQuality) ^
+      const DeepCollectionEquality().hash(hlsInfo) ^
       const DeepCollectionEquality().hash(hotspots) ^
       const DeepCollectionEquality().hash(stars) ^
       const DeepCollectionEquality().hash(category) ^
@@ -693,8 +674,7 @@ abstract class _VideoInfo implements VideoInfo {
       required int votesDown,
       required String votesUpUrl,
       required String votesDownUrl,
-      required String hlsUrl,
-      required List<dynamic> hlsQuality,
+      required Map<int, Map<String, String>> hlsInfo,
       required List<double>? hotspots,
       required List<StarInfo> stars,
       required List<CategoryInfo> category,
@@ -739,9 +719,8 @@ abstract class _VideoInfo implements VideoInfo {
   @override
   String get votesDownUrl => throw _privateConstructorUsedError;
   @override
-  String get hlsUrl => throw _privateConstructorUsedError;
-  @override
-  List<dynamic> get hlsQuality => throw _privateConstructorUsedError;
+  Map<int, Map<String, String>> get hlsInfo =>
+      throw _privateConstructorUsedError;
   @override
   List<double>? get hotspots => throw _privateConstructorUsedError;
   @override

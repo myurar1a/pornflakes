@@ -52,7 +52,17 @@ class GetVideoInfo {
     // hotspots の double 化
     late List<double>? hotspots;
     if (flashvars.hotspots.isNotEmpty) {
-      hotspots = flashvars.hotspots.map((e) => double.parse(e)).toList();
+      hotspots = flashvars.hotspots.map((e) {
+        if (e is String) {
+          print('hotspots is List<String>');
+          return double.parse(e);
+        } else if (e is int) {
+          print('hotspots is List<int>');
+          return e.toDouble();
+        } else {
+          throw Exception('hotspot\'s values aren\'t String and int.');
+        }
+      }).toList();
     } else {
       hotspots = null;
     }
@@ -102,12 +112,24 @@ class GetVideoInfo {
     // hlsPage から hlsjson をString型で取得
     final hlsjsonStr = await GetBody().getBody(hlsPageUrl, cookie);
 
-    // hlsUrl の取得
+    // hlsInfoの取得
+    /*
+      現在、1440p の動画はプレミアム会員なら閲覧可能というようになっている。
+      プレミアム会員の Cookie が設定されてない場合は、videoUrl に URL が記述されない。
+      1440p の動画は 1080p までの動画とは別で hlsList の最後の要素として記述される。
+      今後のアップデートを見据え、動画の解像度とURLを Map で hlsInfo を取得する。
+    */
     final List hlsList = convert.jsonDecode(hlsjsonStr);
-    final String hlsUrl = hlsList[hlsList.length - 1]['videoUrl'];
 
-    // 解像度の種類リスト
-    final List hlsQuality = hlsList[hlsList.length - 1]['quality'];
+    Map<int, Map<String, String>> hlsInfo = {};
+    for (int i = 0; i < hlsList.length; i++) {
+      if (hlsList[i]['quality'] is String && hlsList[i]['videoUrl'] != '') {
+        hlsInfo[i] = {
+          'quality': hlsList[i]['quality'],
+          'hlsUrl': hlsList[i]['videoUrl']
+        };
+      }
+    }
 
     // 処理の高速化に向け playerScript から情報が取得された時点で、Provider に変数を渡して、
     // 動画のロードを先にするのはあり
@@ -220,8 +242,7 @@ class GetVideoInfo {
       votesDown: votesDown,
       votesUpUrl: votesUpUrl,
       votesDownUrl: votesDownUrl,
-      hlsUrl: hlsUrl,
-      hlsQuality: hlsQuality,
+      hlsInfo: hlsInfo,
       hotspots: hotspots,
       stars: starList,
       category: categoryList,
