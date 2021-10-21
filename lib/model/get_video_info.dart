@@ -72,7 +72,7 @@ class GetVideoInfo {
       現時点では断定出来ていないが、最古の動画となる 518 の動画においても、
       2021/09 現在は hls を利用している模様
       よって、現時点では hls 側の URL を取得できる media_1 を無条件で採用する
-      ただし、media_0 と 1 の違いは最後の文字が p か a かのみである
+      ただし、media_0 と 1 の違いは最後の文字が p か a かのみであるため、両対応も視野に入れておく
     */
 
     // media_1 の取得
@@ -131,8 +131,11 @@ class GetVideoInfo {
       }
     }
 
-    // 処理の高速化に向け playerScript から情報が取得された時点で、Provider に変数を渡して、
-    // 動画のロードを先にするのはあり
+    /*
+    処理の高速化に向け playerScript から情報が取得された時点で、
+    Provider に変数を渡して、動画のロードを先にすることも検討中
+    ただし、実装しても誤差の範囲ではあると思う
+    */
 
     // 動画情報のスクレイピング
     final phvwrapElem = phDoc.querySelector('.video-wrapper')!;

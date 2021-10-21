@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-// Cookie 対応バージョン (テストがうまくいけばこちらに統合する予定)
+// Cookie 対応バージョン (上手く動作したので、Cookie用も統合済み)
 // 各所で扱えるようにするため、Singleton パターンで記述している
 class GetBody {
   factory GetBody() => _instance;
