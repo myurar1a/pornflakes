@@ -1,3 +1,4 @@
+import 'package:chewie/chewie.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pornflakes/model/get_video_info.dart';
 
@@ -16,35 +17,3 @@ final selectedVideoInfoProvider = FutureProvider<VideoInfo>((ref) async {
   return await GetVideoInfo()
       .scraping(ref.watch(selectedVideoItemProvider).state!);
 });
-
-/*
-final videoInfoProvider = StateProvider<VideoInfo>((ref) => VideoInfo(
-      phUrl: '',
-      title: '',
-      channelName: '',
-      channelIcon: '',
-      channelUrl: '',
-      channelVideoNum: '',
-      channelSubscriberNum: '',
-      sub: '',
-      unsub: '',
-      views: '',
-      forPublished: '',
-      uploadDate: '',
-      imageSrc: '',
-      goodRate: '',
-      votesUp: 0,
-      votesDown: 0,
-      votesUpUrl: '',
-      votesDownUrl: '',
-      hlsInfo: [
-        {'': ''}
-      ],
-      hotspots: null,
-      stars: [],
-      category: [],
-      production: [],
-      tags: [],
-      relatedVideo: [],
-    ));
-*/

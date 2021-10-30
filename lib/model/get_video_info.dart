@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert' as convert;
 import 'package:html/parser.dart';
 import 'package:pornflakes/model/freezed/flashvars.dart';
@@ -67,6 +69,24 @@ class GetVideoInfo {
       hotspots = null;
     }
 
+    // 再生可能な解像度の取得
+    late List quality;
+    if (flashvars.mediaDefinitions.isNotEmpty) {
+      for (int i = 0; i < flashvars.mediaDefinitions.length; i++) {
+        final value = flashvars.mediaDefinitions[i]['defaultQuality'];
+        if (value is bool) {
+          print('[$i] is bool');
+        } else if (value is int) {
+          quality = flashvars.mediaDefinitions[i]['quality'];
+        } else {
+          throw Exception(
+              'mediaDefinitions\'s defaultQuality values aren\'t bool and int.');
+        }
+      }
+    } else {
+      throw Exception('mediaDefinitions is Empty.');
+    }
+
     // videoUrl の取得
     /*
       --- 2021 Sep. ---
@@ -78,47 +98,66 @@ class GetVideoInfo {
       先月の中旬にフロントエンドアップデートがあり、全ての解像度の hlsUrl が flashvars に書かれるようになった。
       ただし、最後の media_(x) には従来と同じ統合リンクがある。
       mediaDefinitions には使えない mp4 が含まれており、この変数の長さが (x) と一致するので、応用できる。
-      
-      更なる応用で hlsUrl を取得する必要を無くすため、for文で処理するのもあり
+      更なる応用で hlsUrl を取得する必要を無くすため、for文で処理する方法へ変更した。
     */
 
-    // media_1 の取得
-    start = 'var media_1=';
-    end = ';flashvars';
-    startIndex = playerScript.indexOf(start);
-    endIndex = playerScript.indexOf(end, startIndex + start.length);
-    String media_1 =
-        playerScript.substring(startIndex + start.length, endIndex);
-
-    // media_1 の必要な変数名を順番で List に格納
-    // split を行う場所を予め ',' に置き換えて複数箇所できるようにする
-    final String media_1Split =
-        media_1.replaceAll(' + */', ',').replaceAll(' + /*', ',');
-    List<String> m1VarsAll = media_1Split.split(',').toList();
-    List<String> m1Vars = [];
-    m1VarsAll.forEach((item) {
-      if (!item.contains('+')) {
-        m1Vars.add(item);
-      }
-    });
-
-    // media_1 の変数名を順番通りに呼び出し、hlsPageUrl を生成
-    String hlsPageUrl = '';
-    for (int i = 0; i < m1Vars.length; i++) {
-      start = 'var ${m1Vars[i]}=';
-      end = ';';
+    // hlsInfo の取得
+    List<Map<String, String>> hlsInfo = [];
+    for (int i = 0; i < quality.length; i++) {
+      start = 'var media_$i=';
+      end = ';flashvars';
       startIndex = playerScript.indexOf(start);
       endIndex = playerScript.indexOf(end, startIndex + start.length);
-      hlsPageUrl = hlsPageUrl +
-          playerScript
-              .substring(startIndex + start.length, endIndex)
-              .replaceAll('"', '')
-              .replaceAll(' + ', '');
+      String media_x =
+          playerScript.substring(startIndex + start.length, endIndex);
+
+      // media_(x) の必要な変数名を順番で List に格納
+      // split を行う場所を予め ',' に置き換えて複数箇所できるようにする
+      final String media_xSplit =
+          media_x.replaceAll(' + */', ',').replaceAll(' + /*', ',');
+      List<String> mxVarsAll = media_xSplit.split(',').toList();
+      List<String> mxVars = [];
+      mxVarsAll.forEach((item) {
+        if (!item.contains('+')) {
+          mxVars.add(item);
+        }
+      });
+
+      // media_(x) の変数名を順番通りに呼び出し、hlsPageUrl を生成
+      String hlsUrl = '';
+      for (int i2 = 0; i2 < mxVars.length; i2++) {
+        start = 'var ${mxVars[i2]}=';
+        end = ';';
+        startIndex = playerScript.indexOf(start);
+        endIndex = playerScript.indexOf(end, startIndex + start.length);
+        hlsUrl = hlsUrl +
+            playerScript
+                .substring(startIndex + start.length, endIndex)
+                .replaceAll('"', '')
+                .replaceAll(' + ', '');
+      }
+
+      // hlsInfo へ quality と hlsUrl を統合
+      // 1080p だけ順番に例外があるため、順序が合うように調整
+      if (quality.length >= 4) {
+        if (i == 0) {
+          hlsInfo.add({'quality': '${quality[0]}p', 'hlsUrl': hlsUrl});
+        } else {
+          hlsInfo.add(
+              {'quality': '${quality[quality.length - i]}p', 'hlsUrl': hlsUrl});
+        }
+      } else {
+        hlsInfo.add({
+          'quality': '${quality[quality.length - 1 - i]}p',
+          'hlsUrl': hlsUrl
+        });
+      }
     }
 
+/*
     // hlsPage から hlsjson をString型で取得
     final hlsjsonStr = await GetBody().getBody(hlsPageUrl, cookie);
-
+*/
     // hlsInfoの取得
     /*
       現在、1440p の動画はプレミアム会員なら閲覧可能というようになっている。
@@ -126,6 +165,7 @@ class GetVideoInfo {
       1440p の動画は 1080p までの動画とは別で hlsList の最後の要素として記述される。
       今後のアップデートを見据え、動画の解像度とURLを Map で hlsInfo を取得する。
     */
+/*
     final List hlsList = convert.jsonDecode(hlsjsonStr);
 
     List<Map<String, String>> hlsInfo = [];
@@ -137,7 +177,7 @@ class GetVideoInfo {
         });
       }
     }
-
+*/
     /*
     処理の高速化に向け playerScript から情報が取得された時点で、
     Provider に変数を渡して、動画のロードを先にすることも検討中

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pornflakes/view/video_page.dart';
 
 import 'view/main_page.dart';
 

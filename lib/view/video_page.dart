@@ -2,12 +2,12 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pornflakes/view_model/bottom_navigation_bar/search_viewmodel.dart';
+import 'package:pornflakes/view_model/video_player_viewmodel.dart';
 import 'package:video_player/video_player.dart';
 
 import 'package:pornflakes/model/freezed/video_info.dart';
 import 'package:pornflakes/view/video/user_page.dart';
 import 'package:pornflakes/view/video/video_page_function.dart';
-import 'package:pornflakes/view_model/video_player_viewmodel.dart';
 import 'package:pornflakes/view/video_tile.dart';
 
 class VideoPage extends ConsumerStatefulWidget {
@@ -20,7 +20,7 @@ class VideoPage extends ConsumerStatefulWidget {
 
 class _VideoPageState extends ConsumerState<VideoPage> {
   late VideoPlayerController _videoPlayerController;
-  late ChewieController _chewieController;
+  ChewieController? _chewieController;
   late double _aspectRatio;
 
   @override
@@ -32,7 +32,7 @@ class _VideoPageState extends ConsumerState<VideoPage> {
   @override
   void dispose() {
     _videoPlayerController.dispose();
-    _chewieController.dispose();
+    _chewieController!.dispose();
     super.dispose();
   }
 
@@ -87,12 +87,14 @@ class _VideoPageState extends ConsumerState<VideoPage> {
         height: MediaQuery.of(context).size.width / 16 * 9,
         child: AspectRatio(
           aspectRatio: _aspectRatio,
-          child: Chewie(controller: _chewieController),
+          child: _chewieController != null
+              ? Chewie(controller: _chewieController!)
+              : SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.width / 16 * 9,
+                  child: Container(color: Colors.black),
+                ),
         ),
-        /*FittedBox(
-          fit: BoxFit.contain,
-          child: Chewie(controller: _chewieController),
-        ),*/
       ),
     ]);
   }

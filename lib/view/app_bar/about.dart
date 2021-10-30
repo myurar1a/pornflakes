@@ -19,7 +19,7 @@ class _AboutPage extends State<AboutPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'PornflakesはPornHubの動画を\n快適に閲覧するためのアプリです\n\nPornflakes v0.1.6.0',
+              'PornflakesはPornHubの動画を\n快適に閲覧するためのアプリです\n\nPornflakes v0.1.6.1',
               textAlign: TextAlign.center,
             ),
           ],
