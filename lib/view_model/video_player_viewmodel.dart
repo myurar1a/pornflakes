@@ -3,23 +3,21 @@ import 'package:pornflakes/model/get_video_info.dart';
 
 import 'package:pornflakes/model/freezed/list_item.dart';
 import 'package:pornflakes/model/freezed/video_info.dart';
+import 'package:miniplayer/miniplayer.dart';
 
-final videoInfoViewModelProvider = FutureProvider<VideoInfo>((ref) async {
-  return await GetVideoInfo().scraping(
-      ref.watch(phUrlProvider).state, ref.watch(listItemProvider).state);
+final miniPlayerControllerProvider =
+    StateProvider.autoDispose<MiniplayerController>(
+  (ref) => (MiniplayerController()),
+);
+
+final selectedVideoItemProvider = StateProvider<ListItem?>((ref) => null);
+
+final selectedVideoInfoProvider = FutureProvider<VideoInfo>((ref) async {
+  return await GetVideoInfo()
+      .scraping(ref.watch(selectedVideoItemProvider).state!);
 });
 
-final phUrlProvider = StateProvider<String>((ref) => 'PronHub_URL');
-final listItemProvider = StateProvider<ListItem>((ref) => ListItem(
-      title: '',
-      channelName: '',
-      views: '',
-      duration: '',
-      goodRate: '',
-      imageSrc: '',
-      mediabookUrl: '',
-      videoUrl: '',
-    ));
+/*
 final videoInfoProvider = StateProvider<VideoInfo>((ref) => VideoInfo(
       phUrl: '',
       title: '',
@@ -39,9 +37,9 @@ final videoInfoProvider = StateProvider<VideoInfo>((ref) => VideoInfo(
       votesDown: 0,
       votesUpUrl: '',
       votesDownUrl: '',
-      hlsInfo: {
-        0: {'': ''}
-      },
+      hlsInfo: [
+        {'': ''}
+      ],
       hotspots: null,
       stars: [],
       category: [],
@@ -49,3 +47,4 @@ final videoInfoProvider = StateProvider<VideoInfo>((ref) => VideoInfo(
       tags: [],
       relatedVideo: [],
     ));
+*/

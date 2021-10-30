@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pornflakes/view/video/video_page.dart';
+import 'package:pornflakes/view/video_page.dart';
 
 import 'view/main_page.dart';
 
@@ -32,7 +32,6 @@ class App extends StatelessWidget {
       initialRoute: '/', // ここ以降の定義がルーティング定義
       routes: {
         '/': (context) => MainPage(),
-        '/video': (context) => VideoPage(),
       },
       debugShowCheckedModeBanner: false,
     );

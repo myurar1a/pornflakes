@@ -240,42 +240,27 @@ class _$_ListItem implements _ListItem {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ListItem &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ListItem &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.channelName, channelName) ||
-                const DeepCollectionEquality()
-                    .equals(other.channelName, channelName)) &&
-            (identical(other.views, views) ||
-                const DeepCollectionEquality().equals(other.views, views)) &&
+                other.channelName == channelName) &&
+            (identical(other.views, views) || other.views == views) &&
             (identical(other.duration, duration) ||
-                const DeepCollectionEquality()
-                    .equals(other.duration, duration)) &&
+                other.duration == duration) &&
             (identical(other.goodRate, goodRate) ||
-                const DeepCollectionEquality()
-                    .equals(other.goodRate, goodRate)) &&
+                other.goodRate == goodRate) &&
             (identical(other.imageSrc, imageSrc) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageSrc, imageSrc)) &&
+                other.imageSrc == imageSrc) &&
             (identical(other.mediabookUrl, mediabookUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.mediabookUrl, mediabookUrl)) &&
+                other.mediabookUrl == mediabookUrl) &&
             (identical(other.videoUrl, videoUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.videoUrl, videoUrl)));
+                other.videoUrl == videoUrl));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(channelName) ^
-      const DeepCollectionEquality().hash(views) ^
-      const DeepCollectionEquality().hash(duration) ^
-      const DeepCollectionEquality().hash(goodRate) ^
-      const DeepCollectionEquality().hash(imageSrc) ^
-      const DeepCollectionEquality().hash(mediabookUrl) ^
-      const DeepCollectionEquality().hash(videoUrl);
+  int get hashCode => Object.hash(runtimeType, title, channelName, views,
+      duration, goodRate, imageSrc, mediabookUrl, videoUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -295,21 +280,21 @@ abstract class _ListItem implements ListItem {
       required String videoUrl}) = _$_ListItem;
 
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String get channelName => throw _privateConstructorUsedError;
+  String get channelName;
   @override
-  String get views => throw _privateConstructorUsedError;
+  String get views;
   @override
-  String get duration => throw _privateConstructorUsedError;
+  String get duration;
   @override
-  String get goodRate => throw _privateConstructorUsedError;
+  String get goodRate;
   @override
-  String get imageSrc => throw _privateConstructorUsedError;
+  String get imageSrc;
   @override
-  String get mediabookUrl => throw _privateConstructorUsedError;
+  String get mediabookUrl;
   @override
-  String get videoUrl => throw _privateConstructorUsedError;
+  String get videoUrl;
   @override
   @JsonKey(ignore: true)
   _$ListItemCopyWith<_ListItem> get copyWith =>
@@ -466,25 +451,18 @@ class _$_ListItems implements _ListItems {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ListItems &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ListItems &&
+            const DeepCollectionEquality().equals(other.items, items) &&
             (identical(other.isLoading, isLoading) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)) &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)) &&
-            (identical(other.init, init) ||
-                const DeepCollectionEquality().equals(other.init, init)));
+                other.isLoading == isLoading) &&
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.init, init) || other.init == init));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(isLoading) ^
-      const DeepCollectionEquality().hash(error) ^
-      const DeepCollectionEquality().hash(init);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(items), isLoading, error, init);
 
   @JsonKey(ignore: true)
   @override
@@ -500,13 +478,13 @@ abstract class _ListItems implements ListItems {
       bool init}) = _$_ListItems;
 
   @override
-  List<ListItem> get items => throw _privateConstructorUsedError;
+  List<ListItem> get items;
   @override
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
-  String? get error => throw _privateConstructorUsedError;
+  String? get error;
   @override
-  bool get init => throw _privateConstructorUsedError;
+  bool get init;
   @override
   @JsonKey(ignore: true)
   _$ListItemsCopyWith<_ListItems> get copyWith =>

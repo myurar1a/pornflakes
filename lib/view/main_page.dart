@@ -7,8 +7,10 @@ import 'package:pornflakes/view/app_bar/search.dart';
 import 'package:pornflakes/view/bottom_navigation_bar/home.dart';
 import 'package:pornflakes/view/bottom_navigation_bar/hot.dart';
 import 'package:pornflakes/view/bottom_navigation_bar/popular.dart';
-import 'package:pornflakes/view/plugin/popup_menu.dart';
+import 'package:pornflakes/view/widgets/mini_player.dart';
+import 'package:pornflakes/view/widgets/popup_menu.dart';
 import 'package:pornflakes/view_model/bottom_navigation_bar/search_viewmodel.dart';
+import 'package:pornflakes/view_model/video_player_viewmodel.dart';
 import 'bottom_navigation_bar/library.dart';
 
 class MainPage extends ConsumerStatefulWidget {
@@ -25,10 +27,10 @@ class _MainPageState extends ConsumerState<MainPage> {
   late int nowTab;
 
   AppBar buildAppBar(BuildContext context) {
-    return AppBar(title: Text('Pornflakes'), actions: [
-      searchBar.getSearchAction(context),
-      appBarPopupMenu(context)
-    ]);
+    return AppBar(
+      title: Text('Pornflakes'),
+      actions: [searchBar.getSearchAction(context), appBarPopupMenu(context)],
+    );
   }
 
   void onSubmitted(String value) {
@@ -55,18 +57,24 @@ class _MainPageState extends ConsumerState<MainPage> {
   @override
   Widget build(BuildContext context) {
     final tabType = ref.watch(tabTypeProvider);
-    final _screens = [
+    final List<Widget> _screens = [
       HomeListView(),
       HotListView(),
       PopularListView(),
       LibraryScreen(),
     ];
+    final videoItem = ref.watch(selectedVideoItemProvider).state;
+    final miniPlayerController = ref.watch(miniPlayerControllerProvider).state;
+
     return Scaffold(
       appBar: searchBar.build(context),
       key: _scaffoldKey,
-      body: (ref.watch(searchWordProvider).state == '')
-          ? _screens[tabType.state.index]
-          : SearchListView(),
+      body: Stack(children: [
+        (ref.watch(searchWordProvider).state == '')
+            ? _screens[tabType.state.index]
+            : SearchListView(),
+        MiniPlayerWidget(videoItem, miniPlayerController),
+      ]),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: tabType.state.index,

@@ -16,6 +16,14 @@ This app is designed to comfortably watch Pornhub videos in a YouTube-like UI.
 - Modify the code
 - Bug fixes
 
+## Skip ahead update planning features (v0.3.0)
+
+### Under planning
+- Use ProviderScope in appropriate situations
+- Completion of the video information panel
+- Double-tap a video player to skip a specified time
+- Distribute signed ipa (for installation on AltStore)
+
 ## About getting the video
 
 This is the same as the structure of youtube-dl.

@@ -36,7 +36,7 @@ class _$VideoInfoTearOff {
       required int votesDown,
       required String votesUpUrl,
       required String votesDownUrl,
-      required Map<int, Map<String, String>> hlsInfo,
+      required List<Map<String, String>> hlsInfo,
       required List<double>? hotspots,
       required List<StarInfo> stars,
       required List<CategoryInfo> category,
@@ -96,8 +96,7 @@ mixin _$VideoInfo {
   int get votesDown => throw _privateConstructorUsedError;
   String get votesUpUrl => throw _privateConstructorUsedError;
   String get votesDownUrl => throw _privateConstructorUsedError;
-  Map<int, Map<String, String>> get hlsInfo =>
-      throw _privateConstructorUsedError;
+  List<Map<String, String>> get hlsInfo => throw _privateConstructorUsedError;
   List<double>? get hotspots => throw _privateConstructorUsedError;
   List<StarInfo> get stars => throw _privateConstructorUsedError;
   List<CategoryInfo> get category => throw _privateConstructorUsedError;
@@ -133,7 +132,7 @@ abstract class $VideoInfoCopyWith<$Res> {
       int votesDown,
       String votesUpUrl,
       String votesDownUrl,
-      Map<int, Map<String, String>> hlsInfo,
+      List<Map<String, String>> hlsInfo,
       List<double>? hotspots,
       List<StarInfo> stars,
       List<CategoryInfo> category,
@@ -254,7 +253,7 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
       hlsInfo: hlsInfo == freezed
           ? _value.hlsInfo
           : hlsInfo // ignore: cast_nullable_to_non_nullable
-              as Map<int, Map<String, String>>,
+              as List<Map<String, String>>,
       hotspots: hotspots == freezed
           ? _value.hotspots
           : hotspots // ignore: cast_nullable_to_non_nullable
@@ -308,7 +307,7 @@ abstract class _$VideoInfoCopyWith<$Res> implements $VideoInfoCopyWith<$Res> {
       int votesDown,
       String votesUpUrl,
       String votesDownUrl,
-      Map<int, Map<String, String>> hlsInfo,
+      List<Map<String, String>> hlsInfo,
       List<double>? hotspots,
       List<StarInfo> stars,
       List<CategoryInfo> category,
@@ -430,7 +429,7 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
       hlsInfo: hlsInfo == freezed
           ? _value.hlsInfo
           : hlsInfo // ignore: cast_nullable_to_non_nullable
-              as Map<int, Map<String, String>>,
+              as List<Map<String, String>>,
       hotspots: hotspots == freezed
           ? _value.hotspots
           : hotspots // ignore: cast_nullable_to_non_nullable
@@ -526,7 +525,7 @@ class _$_VideoInfo implements _VideoInfo {
   @override
   final String votesDownUrl;
   @override
-  final Map<int, Map<String, String>> hlsInfo;
+  final List<Map<String, String>> hlsInfo;
   @override
   final List<double>? hotspots;
   @override
@@ -548,105 +547,78 @@ class _$_VideoInfo implements _VideoInfo {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _VideoInfo &&
-            (identical(other.phUrl, phUrl) ||
-                const DeepCollectionEquality().equals(other.phUrl, phUrl)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
+        (other.runtimeType == runtimeType &&
+            other is _VideoInfo &&
+            (identical(other.phUrl, phUrl) || other.phUrl == phUrl) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.channelName, channelName) ||
-                const DeepCollectionEquality()
-                    .equals(other.channelName, channelName)) &&
+                other.channelName == channelName) &&
             (identical(other.channelIcon, channelIcon) ||
-                const DeepCollectionEquality()
-                    .equals(other.channelIcon, channelIcon)) &&
+                other.channelIcon == channelIcon) &&
             (identical(other.channelUrl, channelUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.channelUrl, channelUrl)) &&
+                other.channelUrl == channelUrl) &&
             (identical(other.channelVideoNum, channelVideoNum) ||
-                const DeepCollectionEquality()
-                    .equals(other.channelVideoNum, channelVideoNum)) &&
+                other.channelVideoNum == channelVideoNum) &&
             (identical(other.channelSubscriberNum, channelSubscriberNum) ||
-                const DeepCollectionEquality().equals(
-                    other.channelSubscriberNum, channelSubscriberNum)) &&
-            (identical(other.sub, sub) ||
-                const DeepCollectionEquality().equals(other.sub, sub)) &&
-            (identical(other.unsub, unsub) ||
-                const DeepCollectionEquality().equals(other.unsub, unsub)) &&
-            (identical(other.views, views) ||
-                const DeepCollectionEquality().equals(other.views, views)) &&
+                other.channelSubscriberNum == channelSubscriberNum) &&
+            (identical(other.sub, sub) || other.sub == sub) &&
+            (identical(other.unsub, unsub) || other.unsub == unsub) &&
+            (identical(other.views, views) || other.views == views) &&
             (identical(other.forPublished, forPublished) ||
-                const DeepCollectionEquality()
-                    .equals(other.forPublished, forPublished)) &&
+                other.forPublished == forPublished) &&
             (identical(other.uploadDate, uploadDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.uploadDate, uploadDate)) &&
+                other.uploadDate == uploadDate) &&
             (identical(other.imageSrc, imageSrc) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageSrc, imageSrc)) &&
+                other.imageSrc == imageSrc) &&
             (identical(other.goodRate, goodRate) ||
-                const DeepCollectionEquality()
-                    .equals(other.goodRate, goodRate)) &&
-            (identical(other.votesUp, votesUp) ||
-                const DeepCollectionEquality()
-                    .equals(other.votesUp, votesUp)) &&
+                other.goodRate == goodRate) &&
+            (identical(other.votesUp, votesUp) || other.votesUp == votesUp) &&
             (identical(other.votesDown, votesDown) ||
-                const DeepCollectionEquality()
-                    .equals(other.votesDown, votesDown)) &&
+                other.votesDown == votesDown) &&
             (identical(other.votesUpUrl, votesUpUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.votesUpUrl, votesUpUrl)) &&
+                other.votesUpUrl == votesUpUrl) &&
             (identical(other.votesDownUrl, votesDownUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.votesDownUrl, votesDownUrl)) &&
-            (identical(other.hlsInfo, hlsInfo) ||
-                const DeepCollectionEquality()
-                    .equals(other.hlsInfo, hlsInfo)) &&
-            (identical(other.hotspots, hotspots) ||
-                const DeepCollectionEquality()
-                    .equals(other.hotspots, hotspots)) &&
-            (identical(other.stars, stars) ||
-                const DeepCollectionEquality().equals(other.stars, stars)) &&
-            (identical(other.category, category) ||
-                const DeepCollectionEquality()
-                    .equals(other.category, category)) &&
-            (identical(other.production, production) ||
-                const DeepCollectionEquality()
-                    .equals(other.production, production)) &&
-            (identical(other.tags, tags) ||
-                const DeepCollectionEquality().equals(other.tags, tags)) &&
-            (identical(other.relatedVideo, relatedVideo) ||
-                const DeepCollectionEquality()
-                    .equals(other.relatedVideo, relatedVideo)));
+                other.votesDownUrl == votesDownUrl) &&
+            const DeepCollectionEquality().equals(other.hlsInfo, hlsInfo) &&
+            const DeepCollectionEquality().equals(other.hotspots, hotspots) &&
+            const DeepCollectionEquality().equals(other.stars, stars) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality()
+                .equals(other.production, production) &&
+            const DeepCollectionEquality().equals(other.tags, tags) &&
+            const DeepCollectionEquality()
+                .equals(other.relatedVideo, relatedVideo));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(phUrl) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(channelName) ^
-      const DeepCollectionEquality().hash(channelIcon) ^
-      const DeepCollectionEquality().hash(channelUrl) ^
-      const DeepCollectionEquality().hash(channelVideoNum) ^
-      const DeepCollectionEquality().hash(channelSubscriberNum) ^
-      const DeepCollectionEquality().hash(sub) ^
-      const DeepCollectionEquality().hash(unsub) ^
-      const DeepCollectionEquality().hash(views) ^
-      const DeepCollectionEquality().hash(forPublished) ^
-      const DeepCollectionEquality().hash(uploadDate) ^
-      const DeepCollectionEquality().hash(imageSrc) ^
-      const DeepCollectionEquality().hash(goodRate) ^
-      const DeepCollectionEquality().hash(votesUp) ^
-      const DeepCollectionEquality().hash(votesDown) ^
-      const DeepCollectionEquality().hash(votesUpUrl) ^
-      const DeepCollectionEquality().hash(votesDownUrl) ^
-      const DeepCollectionEquality().hash(hlsInfo) ^
-      const DeepCollectionEquality().hash(hotspots) ^
-      const DeepCollectionEquality().hash(stars) ^
-      const DeepCollectionEquality().hash(category) ^
-      const DeepCollectionEquality().hash(production) ^
-      const DeepCollectionEquality().hash(tags) ^
-      const DeepCollectionEquality().hash(relatedVideo);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        phUrl,
+        title,
+        channelName,
+        channelIcon,
+        channelUrl,
+        channelVideoNum,
+        channelSubscriberNum,
+        sub,
+        unsub,
+        views,
+        forPublished,
+        uploadDate,
+        imageSrc,
+        goodRate,
+        votesUp,
+        votesDown,
+        votesUpUrl,
+        votesDownUrl,
+        const DeepCollectionEquality().hash(hlsInfo),
+        const DeepCollectionEquality().hash(hotspots),
+        const DeepCollectionEquality().hash(stars),
+        const DeepCollectionEquality().hash(category),
+        const DeepCollectionEquality().hash(production),
+        const DeepCollectionEquality().hash(tags),
+        const DeepCollectionEquality().hash(relatedVideo)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -674,7 +646,7 @@ abstract class _VideoInfo implements VideoInfo {
       required int votesDown,
       required String votesUpUrl,
       required String votesDownUrl,
-      required Map<int, Map<String, String>> hlsInfo,
+      required List<Map<String, String>> hlsInfo,
       required List<double>? hotspots,
       required List<StarInfo> stars,
       required List<CategoryInfo> category,
@@ -683,56 +655,55 @@ abstract class _VideoInfo implements VideoInfo {
       required List<ListItem> relatedVideo}) = _$_VideoInfo;
 
   @override
-  String get phUrl => throw _privateConstructorUsedError;
+  String get phUrl;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String get channelName => throw _privateConstructorUsedError;
+  String get channelName;
   @override
-  String get channelIcon => throw _privateConstructorUsedError;
+  String get channelIcon;
   @override
-  String get channelUrl => throw _privateConstructorUsedError;
+  String get channelUrl;
   @override
-  String get channelVideoNum => throw _privateConstructorUsedError;
+  String get channelVideoNum;
   @override
-  String get channelSubscriberNum => throw _privateConstructorUsedError;
+  String get channelSubscriberNum;
   @override
-  String get sub => throw _privateConstructorUsedError;
+  String get sub;
   @override
-  String get unsub => throw _privateConstructorUsedError;
+  String get unsub;
   @override
-  String get views => throw _privateConstructorUsedError;
+  String get views;
   @override
-  String get forPublished => throw _privateConstructorUsedError;
+  String get forPublished;
   @override
-  String get uploadDate => throw _privateConstructorUsedError;
+  String get uploadDate;
   @override
-  String get imageSrc => throw _privateConstructorUsedError;
+  String get imageSrc;
   @override
-  String get goodRate => throw _privateConstructorUsedError;
+  String get goodRate;
   @override
-  int get votesUp => throw _privateConstructorUsedError;
+  int get votesUp;
   @override
-  int get votesDown => throw _privateConstructorUsedError;
+  int get votesDown;
   @override
-  String get votesUpUrl => throw _privateConstructorUsedError;
+  String get votesUpUrl;
   @override
-  String get votesDownUrl => throw _privateConstructorUsedError;
+  String get votesDownUrl;
   @override
-  Map<int, Map<String, String>> get hlsInfo =>
-      throw _privateConstructorUsedError;
+  List<Map<String, String>> get hlsInfo;
   @override
-  List<double>? get hotspots => throw _privateConstructorUsedError;
+  List<double>? get hotspots;
   @override
-  List<StarInfo> get stars => throw _privateConstructorUsedError;
+  List<StarInfo> get stars;
   @override
-  List<CategoryInfo> get category => throw _privateConstructorUsedError;
+  List<CategoryInfo> get category;
   @override
-  List<ProductionInfo> get production => throw _privateConstructorUsedError;
+  List<ProductionInfo> get production;
   @override
-  List<String> get tags => throw _privateConstructorUsedError;
+  List<String> get tags;
   @override
-  List<ListItem> get relatedVideo => throw _privateConstructorUsedError;
+  List<ListItem> get relatedVideo;
   @override
   @JsonKey(ignore: true)
   _$VideoInfoCopyWith<_VideoInfo> get copyWith =>
@@ -868,23 +839,17 @@ class _$_StarInfo implements _StarInfo {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StarInfo &&
+        (other.runtimeType == runtimeType &&
+            other is _StarInfo &&
             (identical(other.starName, starName) ||
-                const DeepCollectionEquality()
-                    .equals(other.starName, starName)) &&
+                other.starName == starName) &&
             (identical(other.starHref, starHref) ||
-                const DeepCollectionEquality()
-                    .equals(other.starHref, starHref)) &&
-            (identical(other.starSrc, starSrc) ||
-                const DeepCollectionEquality().equals(other.starSrc, starSrc)));
+                other.starHref == starHref) &&
+            (identical(other.starSrc, starSrc) || other.starSrc == starSrc));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(starName) ^
-      const DeepCollectionEquality().hash(starHref) ^
-      const DeepCollectionEquality().hash(starSrc);
+  int get hashCode => Object.hash(runtimeType, starName, starHref, starSrc);
 
   @JsonKey(ignore: true)
   @override
@@ -899,11 +864,11 @@ abstract class _StarInfo implements StarInfo {
       required String? starSrc}) = _$_StarInfo;
 
   @override
-  String? get starName => throw _privateConstructorUsedError;
+  String? get starName;
   @override
-  String? get starHref => throw _privateConstructorUsedError;
+  String? get starHref;
   @override
-  String? get starSrc => throw _privateConstructorUsedError;
+  String? get starSrc;
   @override
   @JsonKey(ignore: true)
   _$StarInfoCopyWith<_StarInfo> get copyWith =>
@@ -1027,20 +992,16 @@ class _$_CategoryInfo implements _CategoryInfo {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CategoryInfo &&
+        (other.runtimeType == runtimeType &&
+            other is _CategoryInfo &&
             (identical(other.categoryName, categoryName) ||
-                const DeepCollectionEquality()
-                    .equals(other.categoryName, categoryName)) &&
+                other.categoryName == categoryName) &&
             (identical(other.categoryHref, categoryHref) ||
-                const DeepCollectionEquality()
-                    .equals(other.categoryHref, categoryHref)));
+                other.categoryHref == categoryHref));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(categoryName) ^
-      const DeepCollectionEquality().hash(categoryHref);
+  int get hashCode => Object.hash(runtimeType, categoryName, categoryHref);
 
   @JsonKey(ignore: true)
   @override
@@ -1054,9 +1015,9 @@ abstract class _CategoryInfo implements CategoryInfo {
       required String? categoryHref}) = _$_CategoryInfo;
 
   @override
-  String? get categoryName => throw _privateConstructorUsedError;
+  String? get categoryName;
   @override
-  String? get categoryHref => throw _privateConstructorUsedError;
+  String? get categoryHref;
   @override
   @JsonKey(ignore: true)
   _$CategoryInfoCopyWith<_CategoryInfo> get copyWith =>
@@ -1182,20 +1143,16 @@ class _$_ProductionInfo implements _ProductionInfo {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ProductionInfo &&
+        (other.runtimeType == runtimeType &&
+            other is _ProductionInfo &&
             (identical(other.productionName, productionName) ||
-                const DeepCollectionEquality()
-                    .equals(other.productionName, productionName)) &&
+                other.productionName == productionName) &&
             (identical(other.productionHref, productionHref) ||
-                const DeepCollectionEquality()
-                    .equals(other.productionHref, productionHref)));
+                other.productionHref == productionHref));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(productionName) ^
-      const DeepCollectionEquality().hash(productionHref);
+  int get hashCode => Object.hash(runtimeType, productionName, productionHref);
 
   @JsonKey(ignore: true)
   @override
@@ -1209,9 +1166,9 @@ abstract class _ProductionInfo implements ProductionInfo {
       required String? productionHref}) = _$_ProductionInfo;
 
   @override
-  String? get productionName => throw _privateConstructorUsedError;
+  String? get productionName;
   @override
-  String? get productionHref => throw _privateConstructorUsedError;
+  String? get productionHref;
   @override
   @JsonKey(ignore: true)
   _$ProductionInfoCopyWith<_ProductionInfo> get copyWith =>

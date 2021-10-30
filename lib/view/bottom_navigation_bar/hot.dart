@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:pornflakes/model/freezed/list_item.dart';
-import 'package:pornflakes/view/video_list.dart';
-import 'package:pornflakes/view/plugin/last_indicator.dart';
+import 'package:pornflakes/view/video_tile.dart';
+import 'package:pornflakes/view/widgets/future_widget.dart';
+import 'package:pornflakes/view/widgets/last_indicator.dart';
 import 'package:pornflakes/view_model/bottom_navigation_bar/hot_viewmodel.dart';
 
 class HotListView extends HookConsumerWidget {

@@ -7,13 +7,13 @@ import 'package:pornflakes/model/get_body.dart';
 import 'package:pornflakes/model/get_video_list.dart';
 
 class GetVideoInfo {
-  Future<VideoInfo> scraping(String phUrl, ListItem listItem) async {
+  Future<VideoInfo> scraping(ListItem listItem) async {
     // 検索用定義
     late String start, end;
     late int startIndex, endIndex;
 
     // Pornhub の動画ページにアクセス
-    final phRes = await GetBody().getRes(phUrl, {});
+    final phRes = await GetBody().getRes(listItem.videoUrl, {});
     final phBody = await convert.utf8.decodeStream(phRes);
     final phDoc = parse(phBody);
 
@@ -69,10 +69,17 @@ class GetVideoInfo {
 
     // videoUrl の取得
     /*
-      現時点では断定出来ていないが、最古の動画となる 518 の動画においても、
-      2021/09 現在は hls を利用している模様
+      --- 2021 Sep. ---
+      最古の動画となる 518 の動画においても hls を利用している模様
       よって、現時点では hls 側の URL を取得できる media_1 を無条件で採用する
       ただし、media_0 と 1 の違いは最後の文字が p か a かのみであるため、両対応も視野に入れておく
+      
+      --- 2021 Nov. ---
+      先月の中旬にフロントエンドアップデートがあり、全ての解像度の hlsUrl が flashvars に書かれるようになった。
+      ただし、最後の media_(x) には従来と同じ統合リンクがある。
+      mediaDefinitions には使えない mp4 が含まれており、この変数の長さが (x) と一致するので、応用できる。
+      
+      更なる応用で hlsUrl を取得する必要を無くすため、for文で処理するのもあり
     */
 
     // media_1 の取得
@@ -121,13 +128,13 @@ class GetVideoInfo {
     */
     final List hlsList = convert.jsonDecode(hlsjsonStr);
 
-    Map<int, Map<String, String>> hlsInfo = {};
+    List<Map<String, String>> hlsInfo = [];
     for (int i = 0; i < hlsList.length; i++) {
       if (hlsList[i]['quality'] is String && hlsList[i]['videoUrl'] != '') {
-        hlsInfo[i] = {
+        hlsInfo.add({
           'quality': hlsList[i]['quality'],
           'hlsUrl': hlsList[i]['videoUrl']
-        };
+        });
       }
     }
 
@@ -226,7 +233,7 @@ class GetVideoInfo {
         await VideoListScrape().getVideoList('#relatedVideosCenter', phBody);
 
     return VideoInfo(
-      phUrl: phUrl,
+      phUrl: listItem.videoUrl,
       title: listItem.title,
       channelName: listItem.channelName,
       channelIcon: channelIcon,

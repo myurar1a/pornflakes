@@ -18,7 +18,10 @@ class _AboutPage extends State<AboutPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('PornflakesはPornHubの動画を\n快適に閲覧するためのアプリです'),
+            Text(
+              'PornflakesはPornHubの動画を\n快適に閲覧するためのアプリです\n\nPornflakes v0.1.6.0',
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),

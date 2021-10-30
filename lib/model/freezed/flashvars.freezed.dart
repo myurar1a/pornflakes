@@ -53,7 +53,7 @@ class _$FlashvarsTearOff {
     );
   }
 
-  Flashvars fromJson(Map<String, Object> json) {
+  Flashvars fromJson(Map<String, Object?> json) {
     return Flashvars.fromJson(json);
   }
 }
@@ -329,48 +329,38 @@ class _$_Flashvars extends _Flashvars {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Flashvars &&
+        (other.runtimeType == runtimeType &&
+            other is _Flashvars &&
             (identical(other.videoUnavailable, videoUnavailable) ||
-                const DeepCollectionEquality()
-                    .equals(other.videoUnavailable, videoUnavailable)) &&
+                other.videoUnavailable == videoUnavailable) &&
             (identical(other.actionTags, actionTags) ||
-                const DeepCollectionEquality()
-                    .equals(other.actionTags, actionTags)) &&
+                other.actionTags == actionTags) &&
             (identical(other.relatedUrl, relatedUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.relatedUrl, relatedUrl)) &&
+                other.relatedUrl == relatedUrl) &&
             (identical(other.imageUrl, imageUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrl, imageUrl)) &&
+                other.imageUrl == imageUrl) &&
             (identical(other.mediaPriority, mediaPriority) ||
-                const DeepCollectionEquality()
-                    .equals(other.mediaPriority, mediaPriority)) &&
-            (identical(other.mediaDefinitions, mediaDefinitions) ||
-                const DeepCollectionEquality()
-                    .equals(other.mediaDefinitions, mediaDefinitions)) &&
+                other.mediaPriority == mediaPriority) &&
+            const DeepCollectionEquality()
+                .equals(other.mediaDefinitions, mediaDefinitions) &&
             (identical(other.unavaliableCountry, unavaliableCountry) ||
-                const DeepCollectionEquality()
-                    .equals(other.unavaliableCountry, unavaliableCountry)) &&
-            (identical(other.hotspots, hotspots) ||
-                const DeepCollectionEquality()
-                    .equals(other.hotspots, hotspots)) &&
-            (identical(other.nextVideo, nextVideo) ||
-                const DeepCollectionEquality()
-                    .equals(other.nextVideo, nextVideo)));
+                other.unavaliableCountry == unavaliableCountry) &&
+            const DeepCollectionEquality().equals(other.hotspots, hotspots) &&
+            const DeepCollectionEquality().equals(other.nextVideo, nextVideo));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(videoUnavailable) ^
-      const DeepCollectionEquality().hash(actionTags) ^
-      const DeepCollectionEquality().hash(relatedUrl) ^
-      const DeepCollectionEquality().hash(imageUrl) ^
-      const DeepCollectionEquality().hash(mediaPriority) ^
-      const DeepCollectionEquality().hash(mediaDefinitions) ^
-      const DeepCollectionEquality().hash(unavaliableCountry) ^
-      const DeepCollectionEquality().hash(hotspots) ^
-      const DeepCollectionEquality().hash(nextVideo);
+  int get hashCode => Object.hash(
+      runtimeType,
+      videoUnavailable,
+      actionTags,
+      relatedUrl,
+      imageUrl,
+      mediaPriority,
+      const DeepCollectionEquality().hash(mediaDefinitions),
+      unavaliableCountry,
+      const DeepCollectionEquality().hash(hotspots),
+      const DeepCollectionEquality().hash(nextVideo));
 
   @JsonKey(ignore: true)
   @override
@@ -410,32 +400,31 @@ abstract class _Flashvars extends Flashvars {
 
   @override
   @JsonKey(name: 'video_unavailable')
-  String get videoUnavailable => throw _privateConstructorUsedError;
+  String get videoUnavailable;
   @override // like bool
   @JsonKey(name: 'actionTags')
-  String get actionTags => throw _privateConstructorUsedError;
+  String get actionTags;
   @override
   @JsonKey(name: 'related_url')
-  String get relatedUrl => throw _privateConstructorUsedError;
+  String get relatedUrl;
   @override
   @JsonKey(name: 'image_url')
-  String get imageUrl => throw _privateConstructorUsedError;
+  String get imageUrl;
   @override
   @JsonKey(name: 'mediaPriority')
-  String get mediaPriority => throw _privateConstructorUsedError;
+  String get mediaPriority;
   @override
   @JsonKey(name: 'mediaDefinitions')
-  List<Map<String, dynamic>> get mediaDefinitions =>
-      throw _privateConstructorUsedError;
+  List<Map<String, dynamic>> get mediaDefinitions;
   @override
   @JsonKey(name: 'video_unavailable_country')
-  String get unavaliableCountry => throw _privateConstructorUsedError;
+  String get unavaliableCountry;
   @override // like bool
   @JsonKey(name: 'hotspots')
-  List<dynamic> get hotspots => throw _privateConstructorUsedError;
+  List<dynamic> get hotspots;
   @override
   @JsonKey(name: 'nextVideo')
-  Map<String, dynamic> get nextVideo => throw _privateConstructorUsedError;
+  Map<String, dynamic> get nextVideo;
   @override
   @JsonKey(ignore: true)
   _$FlashvarsCopyWith<_Flashvars> get copyWith =>

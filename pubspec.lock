@@ -7,7 +7,7 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "26.0.0"
+    version: "30.0.0"
   align_positioned:
     dependency: transitive
     description:
@@ -21,7 +21,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.0"
+    version: "2.7.0"
   archive:
     dependency: transitive
     description:
@@ -84,14 +84,14 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.4"
   build_runner_core:
     dependency: transitive
     description:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.1.0"
+    version: "7.2.2"
   built_collection:
     dependency: transitive
     description:
@@ -259,7 +259,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.7"
+    version: "1.0.0-dev.11"
   flutter_search_bar:
     dependency: "direct main"
     description:
@@ -283,14 +283,14 @@ packages:
       name: freezed
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.5"
+    version: "0.15.0+1"
   freezed_annotation:
     dependency: "direct main"
     description:
       name: freezed_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.3"
+    version: "0.15.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -318,7 +318,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.7"
+    version: "1.0.0-dev.11"
   html:
     dependency: "direct main"
     description:
@@ -410,6 +410,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  miniplayer:
+    dependency: "direct main"
+    description:
+      name: miniplayer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   nested:
     dependency: transitive
     description:
@@ -479,7 +486,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.7"
+    version: "1.0.0-dev.10"
   shelf:
     dependency: transitive
     description:
@@ -696,5 +703,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.13.0 <3.0.0"
+  dart: ">=2.14.0 <3.0.0"
   flutter: ">=2.0.0"
