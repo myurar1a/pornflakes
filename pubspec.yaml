@@ -31,9 +31,9 @@ dependencies:
   chewie: 
     git: https://github.com/myurar1a/chewie_for_pornflakes.git
   video_player: ^2.2.0
+  pip_view: ^0.9.6-nullsafety
   miniplayer: ^1.0.1
   flutter_search_bar: ^3.0.0-dev.1
-  json_serializable: ^5.0.1
 
 
   # The following adds the Cupertino Icons font to your application.

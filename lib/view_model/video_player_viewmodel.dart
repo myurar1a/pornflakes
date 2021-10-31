@@ -1,4 +1,3 @@
-import 'package:chewie/chewie.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pornflakes/model/get_video_info.dart';
 

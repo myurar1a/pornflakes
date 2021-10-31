@@ -60,7 +60,7 @@ Widget videoTile(BuildContext context, WidgetRef ref, ListItem videoItem) {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1!
-                    .copyWith(fontSize: 15.0),
+                    .copyWith(fontSize: 14.0),
               ),
             ),
           ),
@@ -83,7 +83,7 @@ Widget videoTile(BuildContext context, WidgetRef ref, ListItem videoItem) {
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.left,
           maxLines: 2,
-          style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 14.0),
+          style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 12.0),
         ),
       ),
     ]),

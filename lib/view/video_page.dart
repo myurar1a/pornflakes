@@ -92,7 +92,7 @@ class _VideoPageState extends ConsumerState<VideoPage> {
               : SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.width / 16 * 9,
-                  child: Container(color: Colors.black),
+                  child: Image.network(widget.videoInfo.imageSrc),
                 ),
         ),
       ),
@@ -121,36 +121,36 @@ class _VideoPageState extends ConsumerState<VideoPage> {
                   textAlign: TextAlign.left,
                 ),
               ),
-              Text(
-                'ここにカテゴリーなどのボタンを配置\n利用頻度が低いことから、検索機能を優先して実装する予定です。値の取得自体はしているため、早い段階での実装が可能です。\n',
-                style: TextStyle(fontSize: 12, color: Colors.grey),
-                textAlign: TextAlign.left,
+              /*
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text('カテゴリー',
+                    style: TextStyle(fontSize: 14, color: Colors.grey)),
               ),
+              buildDiscription(videoInfo.category),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text('キャスト',
+                    style: TextStyle(fontSize: 14, color: Colors.grey)),
+              ),
+              (videoInfo.stars.length != 0)
+                  ? buildDiscription(videoInfo.stars)
+                  : Container(),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text('製作',
+                    style: TextStyle(fontSize: 14, color: Colors.grey)),
+              ),
+              (videoInfo.production.length != 0)
+                  ? buildDiscription(videoInfo.production)
+                  : Container(),
+              */
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text('タグ',
                     style: TextStyle(fontSize: 14, color: Colors.grey)),
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(children: [
-                  for (int i = 0; i < videoInfo.tags.length; i++)
-                    Padding(
-                      padding: EdgeInsets.only(right: 6),
-                      child: OutlinedButton(
-                        child: Text('${videoInfo.tags[i]}'),
-                        style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            padding: EdgeInsets.only(left: 6, right: 6)),
-                        onPressed: () {
-                          ref.read(searchWordProvider).state =
-                              '${videoInfo.tags[i]}';
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                ]),
-              ),
+              buildTags(videoInfo.tags),
             ]),
         Padding(
           padding: EdgeInsets.only(top: 6, bottom: 6),
@@ -294,6 +294,50 @@ class _VideoPageState extends ConsumerState<VideoPage> {
         content: Text(text),
         duration: const Duration(seconds: 3),
       ),
+    );
+  }
+
+  Widget buildDiscription(List cateList) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(children: [
+        for (int i = 0; i < cateList.length; i++)
+          Padding(
+            padding: EdgeInsets.only(right: 6),
+            child: OutlinedButton(
+              child: Text('${cateList[i]["categoryName"]}'),
+              style: OutlinedButton.styleFrom(
+                  primary: Colors.black,
+                  padding: EdgeInsets.only(left: 6, right: 6)),
+              onPressed: () {
+                ref.read(selectedVideoItemProvider).state = null;
+                //ref.read(searchWordProvider).state = '${cateList[i]["categoryHref"]}';
+              },
+            ),
+          ),
+      ]),
+    );
+  }
+
+  Widget buildTags(List tagList) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(children: [
+        for (int i = 0; i < tagList.length; i++)
+          Padding(
+            padding: EdgeInsets.only(right: 6),
+            child: OutlinedButton(
+              child: Text('${tagList[i]}'),
+              style: OutlinedButton.styleFrom(
+                  primary: Colors.black,
+                  padding: EdgeInsets.only(left: 6, right: 6)),
+              onPressed: () {
+                ref.read(selectedVideoItemProvider).state = null;
+                ref.read(searchWordProvider).state = '${tagList[i]}';
+              },
+            ),
+          ),
+      ]),
     );
   }
 }

@@ -11,14 +11,15 @@ This app is designed to comfortably watch Pornhub videos in a YouTube-like UI.
 - Support Flutter 2.5
 
 ### Running
-- Embed Stars / Category / Production
+- Implement a mini-player using pip_view
 - Library page (Functions may be limited)
 - Modify the code
 - Bug fixes
 
-## Skip ahead update planning features (v0.3.0)
+## More advanced update planning features (v0.3.0)
 
 ### Under planning
+- Embed Stars / Category / Production
 - Use ProviderScope in appropriate situations
 - Completion of the video information panel
 - Double-tap a video player to skip a specified time

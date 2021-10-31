@@ -368,13 +368,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.0"
-  json_serializable:
-    dependency: "direct main"
-    description:
-      name: json_serializable
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.2"
   logging:
     dependency: transitive
     description:
@@ -452,6 +445,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.0"
+  pip_view:
+    dependency: "direct main"
+    description:
+      name: pip_view
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.6-nullsafety"
   pool:
     dependency: transitive
     description:
@@ -513,13 +513,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  source_helper:
-    dependency: transitive
-    description:
-      name: source_helper
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.1"
   source_span:
     dependency: transitive
     description:
