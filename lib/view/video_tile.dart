@@ -16,7 +16,6 @@ Widget videoTile(BuildContext context, WidgetRef ref, ListItem videoItem) {
           .animateToHeight(state: PanelState.MAX);
     },
     child: Column(children: <Widget>[
-      // build VideoTile
       Stack(children: [
         Container(
           width: MediaQuery.of(context).size.width,
