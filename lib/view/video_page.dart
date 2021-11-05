@@ -7,7 +7,7 @@ import 'package:video_player/video_player.dart';
 
 import 'package:pornflakes/model/freezed/video_info.dart';
 import 'package:pornflakes/view/video/user_page.dart';
-import 'package:pornflakes/view/video/video_page_function.dart';
+import 'package:pornflakes/view/video/icon_functions.dart';
 import 'package:pornflakes/view/video_tile.dart';
 
 class VideoPage extends ConsumerStatefulWidget {
@@ -103,140 +103,66 @@ class _VideoPageState extends ConsumerState<VideoPage> {
     return SingleChildScrollView(
       child: Column(children: [
         ExpansionTile(
-            title: Text('${videoInfo.title}',
-                style: TextStyle(fontSize: 16),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2),
-            subtitle: Text(
-              '${videoInfo.views} 回視聴・${videoInfo.forPublished}',
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+          title: Text('${videoInfo.title}',
+              style: TextStyle(fontSize: 16),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2),
+          subtitle: Text(
+            '${videoInfo.views} 回視聴・${videoInfo.forPublished}',
+            style: TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+          childrenPadding: EdgeInsets.only(right: 15, left: 15, bottom: 12),
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '公開日：${videoInfo.uploadDate}\n',
+                style: TextStyle(fontSize: 12, color: Colors.grey),
+                textAlign: TextAlign.left,
+              ),
             ),
-            childrenPadding: EdgeInsets.only(right: 15, left: 15, bottom: 12),
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  '公開日：${videoInfo.uploadDate}\n',
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              /*
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('カテゴリー',
-                    style: TextStyle(fontSize: 14, color: Colors.grey)),
-              ),
-              buildDiscription(videoInfo.category),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('キャスト',
-                    style: TextStyle(fontSize: 14, color: Colors.grey)),
-              ),
-              (videoInfo.stars.length != 0)
-                  ? buildDiscription(videoInfo.stars)
-                  : Container(),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('製作',
-                    style: TextStyle(fontSize: 14, color: Colors.grey)),
-              ),
-              (videoInfo.production.length != 0)
-                  ? buildDiscription(videoInfo.production)
-                  : Container(),
-              */
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('タグ',
-                    style: TextStyle(fontSize: 14, color: Colors.grey)),
-              ),
-              buildTags(videoInfo.tags),
-            ]),
+            /*
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('カテゴリー',
+                  style: TextStyle(fontSize: 14, color: Colors.grey)),
+            ),
+            buildDiscription(videoInfo.category),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('キャスト',
+                  style: TextStyle(fontSize: 14, color: Colors.grey)),
+            ),
+            (videoInfo.stars.length != 0)
+                ? buildDiscription(videoInfo.stars)
+                : Container(),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('製作',
+                  style: TextStyle(fontSize: 14, color: Colors.grey)),
+            ),
+            (videoInfo.production.length != 0)
+                ? buildDiscription(videoInfo.production)
+                : Container(),
+            */
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('タグ',
+                  style: TextStyle(fontSize: 14, color: Colors.grey)),
+            ),
+            buildTags(videoInfo.tags),
+          ],
+        ),
+
+        // アイコンボタン機能の表示
         Padding(
           padding: EdgeInsets.only(top: 6, bottom: 6),
-          child: Row(children: [
-            Expanded(
-              child: TextButton(
-                onPressed: null,
-                style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                child: Column(children: [
-                  Icon(Icons.thumb_up),
-                  Container(
-                    margin: EdgeInsets.only(top: 3),
-                    child: Text('${videoInfo.votesUp}',
-                        style: TextStyle(fontSize: 12)),
-                  ),
-                ]),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                onPressed: null,
-                style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                child: Column(children: [
-                  Icon(Icons.thumb_down),
-                  Container(
-                    margin: EdgeInsets.only(top: 3),
-                    child: Text('${videoInfo.votesDown}',
-                        style: TextStyle(fontSize: 12)),
-                  ),
-                ]),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                onPressed: () => _copyUrl(videoInfo.phUrl, 'リンクをコピーしました'),
-                style: TextButton.styleFrom(
-                    primary: Colors.grey,
-                    shape: const CircleBorder(),
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                child: Column(children: [
-                  Icon(Icons.content_copy),
-                  Container(
-                    margin: EdgeInsets.only(top: 3),
-                    child: Text('コピー', style: TextStyle(fontSize: 12)),
-                  ),
-                ]),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                onPressed: null,
-                style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                child: Column(children: [
-                  Icon(Icons.download),
-                  Container(
-                    margin: EdgeInsets.only(top: 3),
-                    child: Text('ダウンロード', style: TextStyle(fontSize: 12)),
-                  ),
-                ]),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                onPressed: null,
-                style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                child: Column(children: [
-                  Icon(Icons.library_add),
-                  Container(
-                    margin: EdgeInsets.only(top: 3),
-                    child: Text('保存', style: TextStyle(fontSize: 12)),
-                  ),
-                ]),
-              ),
-            ),
-          ]),
+          child: functionsWidget(context, videoInfo),
         ),
+
         Divider(height: 0),
+
+        // 投稿者表示
         ListTile(
           onTap: () {
             Navigator.push(
@@ -272,6 +198,8 @@ class _VideoPageState extends ConsumerState<VideoPage> {
           padding: EdgeInsets.only(bottom: 10),
           child: Divider(height: 0),
         ),
+
+        // 関連動画のリスト表示 (上限あり)
         ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
@@ -280,20 +208,6 @@ class _VideoPageState extends ConsumerState<VideoPage> {
               videoTile(context, ref, videoInfo.relatedVideo[index]),
         ),
       ]),
-    );
-  }
-
-  void _copyUrl(String url, String text) {
-    IconFunction().copy(url);
-    _showToast(text);
-  }
-
-  void _showToast(String text) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(text),
-        duration: const Duration(seconds: 3),
-      ),
     );
   }
 
