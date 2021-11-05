@@ -3,9 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:miniplayer/miniplayer.dart';
 
 import 'package:pornflakes/model/freezed/list_item.dart';
-import 'package:pornflakes/model/freezed/video_info.dart';
+import 'package:pornflakes/view/video/video_info.dart';
 import 'package:pornflakes/view/video_page.dart';
-import 'package:pornflakes/view/widgets/future_widget.dart';
+import 'package:pornflakes/view/widgets/async_value_widget.dart';
 import 'package:pornflakes/view_model/video_player_viewmodel.dart';
 
 class MiniPlayerWidget extends StatelessWidget {
@@ -31,10 +31,20 @@ class MiniPlayerWidget extends StatelessWidget {
               }
               return ref.watch(selectedVideoInfoProvider).when(
                 data: (videoInfo) {
+                  Widget chewiePlayer = ChewiePlayer(videoInfo: videoInfo);
                   if (height <= _playerMinHeight + 10.0) {
-                    return layout(context, ref, videoItem!, videoInfo);
+                    return layout(context, ref, videoItem!, chewiePlayer);
                   } else {
-                    return VideoPage(videoInfo: videoInfo);
+                    return Scaffold(
+                      body: SafeArea(
+                        child: Column(children: [
+                          chewiePlayer(),
+                          Expanded(
+                            child: buildInfo(context, ref, videoInfo),
+                          ),
+                        ]),
+                      ),
+                    );
                   }
                 },
                 loading: (previous) {
@@ -60,14 +70,16 @@ class MiniPlayerWidget extends StatelessWidget {
   }
 
   Widget layout(BuildContext context, WidgetRef ref, ListItem videoItem,
-      VideoInfo? videoInfo) {
+      Widget? chewiePlayer) {
     return Container(
       color: Theme.of(context).scaffoldBackgroundColor,
       child: Column(children: [
         Row(children: [
-          (videoInfo != null)
+          // データ取得時かロード時かの判定
+          // SizedBox を拡大表示等に連動できれば最高なんやが...
+          (chewiePlayer != null)
               ? SizedBox(
-                  child: Image.network(videoItem.imageSrc),
+                  child: chewiePlayer,
                   height: _playerMinHeight - 2,
                   width: (_playerMinHeight - 2) / 9 * 16,
                 )

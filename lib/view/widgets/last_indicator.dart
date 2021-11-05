@@ -8,29 +8,30 @@ class LastIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
-        key: Key("for detect visibility"),
-        onVisibilityChanged: (info) {
-          if (info.visibleFraction > 0.1) {
-            onVisible();
-          }
-        },
-        child: Column(
-          children: [
-            Divider(
-              height: 1,
-            ),
-            SizedBox(
-              width: 50,
-              height: 50,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: FittedBox(
-                  fit: BoxFit.contain,
-                  child: CircularProgressIndicator(),
-                ),
+      key: Key("for detect visibility"),
+      onVisibilityChanged: (info) {
+        if (info.visibleFraction > 0.1) {
+          onVisible();
+        }
+      },
+      child: Column(
+        children: [
+          Divider(
+            height: 1,
+          ),
+          SizedBox(
+            width: 50,
+            height: 50,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: CircularProgressIndicator(),
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
