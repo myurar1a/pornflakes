@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pornflakes/model/freezed/video_info.dart';
-import 'package:pornflakes/view/video/info_widget/icon_functions.dart';
+import 'package:pornflakes/view/video/info_widgets/icon_functions.dart';
 import 'package:pornflakes/view/video/info_widgets/description.dart';
 import 'package:pornflakes/view/video/user_page.dart';
 import 'package:pornflakes/view/video_tile.dart';

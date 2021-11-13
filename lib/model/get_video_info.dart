@@ -224,17 +224,6 @@ class GetVideoInfo {
     final String votesDownUrl = tooltip['submitVoteDown'];
 
     // Discription
-    List<CategoryInfo> categoryList = [];
-    final categoryElements =
-        phvwrapElem.querySelectorAll('.categoriesWrapper > .item');
-    for (final cateElem in categoryElements) {
-      if (categoryElements != []) {
-        final categoryHref = cateElem.attributes['href']!;
-        categoryList.add(CategoryInfo(
-            categoryName: cateElem.text, categoryHref: categoryHref));
-      }
-    }
-
     List<StarInfo> starList = [];
     final starElements =
         phvwrapElem.querySelectorAll('.pornstarsWrapper > .pstar-list-btn');
@@ -243,20 +232,29 @@ class GetVideoInfo {
         final starHref = starElem.attributes['href']!;
         final starSrc =
             starElem.querySelector('.avatar')!.attributes['data-src']!;
-        starList.add(StarInfo(
-            starName: starElem.text.trim(),
-            starHref: starHref,
-            starSrc: starSrc));
+        starList.add(
+            StarInfo(name: starElem.text.trim(), href: starHref, src: starSrc));
       }
     }
+
+    List<CategoryInfo> categoryList = [];
+    final categoryElements =
+        phvwrapElem.querySelectorAll('.categoriesWrapper > .item');
+    for (final cateElem in categoryElements) {
+      if (categoryElements != []) {
+        final categoryHref = cateElem.attributes['href']!;
+        categoryList.add(CategoryInfo(name: cateElem.text, href: categoryHref));
+      }
+    }
+
     List<ProductionInfo> productionList = [];
     final productionElements =
         phvwrapElem.querySelectorAll('.productionWrapper > .item');
     for (final prodElem in productionElements) {
       if (productionElements != []) {
         final productionHref = prodElem.attributes['href']!;
-        productionList.add(ProductionInfo(
-            productionName: prodElem.text, productionHref: productionHref));
+        productionList
+            .add(ProductionInfo(name: prodElem.text, href: productionHref));
       }
     }
 

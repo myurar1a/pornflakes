@@ -10,6 +10,8 @@ import 'package:pornflakes/view_model/video_player_viewmodel.dart';
 
 class MiniPlayerWidget extends StatelessWidget {
   static const double _playerMinHeight = 60.0;
+  final ValueNotifier<double> playerExpandProgress =
+      ValueNotifier(_playerMinHeight);
 
   final ListItem? videoItem;
   final MiniplayerController miniPlayerController;
@@ -25,20 +27,23 @@ class MiniPlayerWidget extends StatelessWidget {
             controller: miniPlayerController,
             minHeight: _playerMinHeight,
             maxHeight: MediaQuery.of(context).size.height,
+            onDismiss: () => ref.read(selectedVideoItemProvider).state = null,
+            valueNotifier: playerExpandProgress,
+            curve: Curves.easeOut,
             builder: (height, percentage) {
               if (videoItem == null) {
                 return const SizedBox.shrink();
               }
               return ref.watch(selectedVideoInfoProvider).when(
                 data: (videoInfo) {
-                  Widget chewiePlayer = ChewiePlayer(videoInfo: videoInfo);
+                  final chewiePlayer = ChewiePlayer(videoInfo: videoInfo);
                   if (height <= _playerMinHeight + 10.0) {
                     return layout(context, ref, videoItem!, chewiePlayer);
                   } else {
                     return Scaffold(
                       body: SafeArea(
                         child: Column(children: [
-                          chewiePlayer(),
+                          chewiePlayer,
                           Expanded(
                             child: buildInfo(context, ref, videoInfo),
                           ),
@@ -143,7 +148,7 @@ class MiniPlayerWidget extends StatelessWidget {
     );
   }
 }
-
+/*
 class OldMiniPlayerWidget extends StatelessWidget {
   static const double _playerMinHeight = 60.0;
 
@@ -243,3 +248,4 @@ class OldMiniPlayerWidget extends StatelessWidget {
     );
   }
 }
+*/

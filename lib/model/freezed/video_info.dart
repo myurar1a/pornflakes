@@ -36,24 +36,24 @@ abstract class VideoInfo with _$VideoInfo {
 @freezed
 abstract class StarInfo with _$StarInfo {
   const factory StarInfo({
-    required final String? starName,
-    required final String? starHref,
-    required final String? starSrc,
+    required final String? name,
+    required final String? href,
+    required final String? src,
   }) = _StarInfo;
 }
 
 @freezed
 abstract class CategoryInfo with _$CategoryInfo {
   const factory CategoryInfo({
-    required final String? categoryName,
-    required final String? categoryHref,
+    required final String? name,
+    required final String? href,
   }) = _CategoryInfo;
 }
 
 @freezed
 abstract class ProductionInfo with _$ProductionInfo {
   const factory ProductionInfo({
-    required final String? productionName,
-    required final String? productionHref,
+    required final String? name,
+    required final String? href,
   }) = _ProductionInfo;
 }

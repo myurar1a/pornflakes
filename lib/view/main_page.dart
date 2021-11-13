@@ -73,7 +73,7 @@ class _MainPageState extends ConsumerState<MainPage> {
         (ref.watch(searchWordProvider).state == '')
             ? _screens[tabType.state.index]
             : SearchListView(),
-        OldMiniPlayerWidget(videoItem, miniPlayerController),
+        MiniPlayerWidget(videoItem, miniPlayerController),
       ]),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

@@ -2,6 +2,7 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pornflakes/view/video/chewie_option.dart';
+import 'package:pornflakes/view_model/video_player_viewmodel.dart';
 import 'package:video_player/video_player.dart';
 import 'package:pornflakes/model/freezed/video_info.dart';
 
@@ -73,6 +74,9 @@ class _ChewiePlayerState extends ConsumerState<ChewiePlayer> {
 
   @override
   Widget build(BuildContext context) {
+    if (ref.watch(selectedVideoItemProvider).state == null) {
+      dispose();
+    }
     return Stack(children: [
       Container(
         width: MediaQuery.of(context).size.width,

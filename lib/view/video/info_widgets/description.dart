@@ -54,7 +54,9 @@ Widget _descriptions(WidgetRef ref, List infoList, bool href) {
         Padding(
           padding: EdgeInsets.only(right: 6),
           child: OutlinedButton(
-            child: Text('${infoList[i]["categoryName"]}'),
+            child: (href == true)
+                ? Text('${infoList[i]["name"]}')
+                : Text('${infoList[i]}'),
             style: OutlinedButton.styleFrom(
                 primary: Colors.black,
                 padding: EdgeInsets.only(left: 6, right: 6)),

@@ -715,13 +715,11 @@ class _$StarInfoTearOff {
   const _$StarInfoTearOff();
 
   _StarInfo call(
-      {required String? starName,
-      required String? starHref,
-      required String? starSrc}) {
+      {required String? name, required String? href, required String? src}) {
     return _StarInfo(
-      starName: starName,
-      starHref: starHref,
-      starSrc: starSrc,
+      name: name,
+      href: href,
+      src: src,
     );
   }
 }
@@ -731,9 +729,9 @@ const $StarInfo = _$StarInfoTearOff();
 
 /// @nodoc
 mixin _$StarInfo {
-  String? get starName => throw _privateConstructorUsedError;
-  String? get starHref => throw _privateConstructorUsedError;
-  String? get starSrc => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get href => throw _privateConstructorUsedError;
+  String? get src => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StarInfoCopyWith<StarInfo> get copyWith =>
@@ -744,7 +742,7 @@ mixin _$StarInfo {
 abstract class $StarInfoCopyWith<$Res> {
   factory $StarInfoCopyWith(StarInfo value, $Res Function(StarInfo) then) =
       _$StarInfoCopyWithImpl<$Res>;
-  $Res call({String? starName, String? starHref, String? starSrc});
+  $Res call({String? name, String? href, String? src});
 }
 
 /// @nodoc
@@ -757,22 +755,22 @@ class _$StarInfoCopyWithImpl<$Res> implements $StarInfoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? starName = freezed,
-    Object? starHref = freezed,
-    Object? starSrc = freezed,
+    Object? name = freezed,
+    Object? href = freezed,
+    Object? src = freezed,
   }) {
     return _then(_value.copyWith(
-      starName: starName == freezed
-          ? _value.starName
-          : starName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      starHref: starHref == freezed
-          ? _value.starHref
-          : starHref // ignore: cast_nullable_to_non_nullable
+      href: href == freezed
+          ? _value.href
+          : href // ignore: cast_nullable_to_non_nullable
               as String?,
-      starSrc: starSrc == freezed
-          ? _value.starSrc
-          : starSrc // ignore: cast_nullable_to_non_nullable
+      src: src == freezed
+          ? _value.src
+          : src // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -783,7 +781,7 @@ abstract class _$StarInfoCopyWith<$Res> implements $StarInfoCopyWith<$Res> {
   factory _$StarInfoCopyWith(_StarInfo value, $Res Function(_StarInfo) then) =
       __$StarInfoCopyWithImpl<$Res>;
   @override
-  $Res call({String? starName, String? starHref, String? starSrc});
+  $Res call({String? name, String? href, String? src});
 }
 
 /// @nodoc
@@ -797,22 +795,22 @@ class __$StarInfoCopyWithImpl<$Res> extends _$StarInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? starName = freezed,
-    Object? starHref = freezed,
-    Object? starSrc = freezed,
+    Object? name = freezed,
+    Object? href = freezed,
+    Object? src = freezed,
   }) {
     return _then(_StarInfo(
-      starName: starName == freezed
-          ? _value.starName
-          : starName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      starHref: starHref == freezed
-          ? _value.starHref
-          : starHref // ignore: cast_nullable_to_non_nullable
+      href: href == freezed
+          ? _value.href
+          : href // ignore: cast_nullable_to_non_nullable
               as String?,
-      starSrc: starSrc == freezed
-          ? _value.starSrc
-          : starSrc // ignore: cast_nullable_to_non_nullable
+      src: src == freezed
+          ? _value.src
+          : src // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -822,18 +820,18 @@ class __$StarInfoCopyWithImpl<$Res> extends _$StarInfoCopyWithImpl<$Res>
 
 class _$_StarInfo implements _StarInfo {
   const _$_StarInfo(
-      {required this.starName, required this.starHref, required this.starSrc});
+      {required this.name, required this.href, required this.src});
 
   @override
-  final String? starName;
+  final String? name;
   @override
-  final String? starHref;
+  final String? href;
   @override
-  final String? starSrc;
+  final String? src;
 
   @override
   String toString() {
-    return 'StarInfo(starName: $starName, starHref: $starHref, starSrc: $starSrc)';
+    return 'StarInfo(name: $name, href: $href, src: $src)';
   }
 
   @override
@@ -841,15 +839,13 @@ class _$_StarInfo implements _StarInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StarInfo &&
-            (identical(other.starName, starName) ||
-                other.starName == starName) &&
-            (identical(other.starHref, starHref) ||
-                other.starHref == starHref) &&
-            (identical(other.starSrc, starSrc) || other.starSrc == starSrc));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.href, href) || other.href == href) &&
+            (identical(other.src, src) || other.src == src));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, starName, starHref, starSrc);
+  int get hashCode => Object.hash(runtimeType, name, href, src);
 
   @JsonKey(ignore: true)
   @override
@@ -859,16 +855,16 @@ class _$_StarInfo implements _StarInfo {
 
 abstract class _StarInfo implements StarInfo {
   const factory _StarInfo(
-      {required String? starName,
-      required String? starHref,
-      required String? starSrc}) = _$_StarInfo;
+      {required String? name,
+      required String? href,
+      required String? src}) = _$_StarInfo;
 
   @override
-  String? get starName;
+  String? get name;
   @override
-  String? get starHref;
+  String? get href;
   @override
-  String? get starSrc;
+  String? get src;
   @override
   @JsonKey(ignore: true)
   _$StarInfoCopyWith<_StarInfo> get copyWith =>
@@ -879,11 +875,10 @@ abstract class _StarInfo implements StarInfo {
 class _$CategoryInfoTearOff {
   const _$CategoryInfoTearOff();
 
-  _CategoryInfo call(
-      {required String? categoryName, required String? categoryHref}) {
+  _CategoryInfo call({required String? name, required String? href}) {
     return _CategoryInfo(
-      categoryName: categoryName,
-      categoryHref: categoryHref,
+      name: name,
+      href: href,
     );
   }
 }
@@ -893,8 +888,8 @@ const $CategoryInfo = _$CategoryInfoTearOff();
 
 /// @nodoc
 mixin _$CategoryInfo {
-  String? get categoryName => throw _privateConstructorUsedError;
-  String? get categoryHref => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get href => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryInfoCopyWith<CategoryInfo> get copyWith =>
@@ -906,7 +901,7 @@ abstract class $CategoryInfoCopyWith<$Res> {
   factory $CategoryInfoCopyWith(
           CategoryInfo value, $Res Function(CategoryInfo) then) =
       _$CategoryInfoCopyWithImpl<$Res>;
-  $Res call({String? categoryName, String? categoryHref});
+  $Res call({String? name, String? href});
 }
 
 /// @nodoc
@@ -919,17 +914,17 @@ class _$CategoryInfoCopyWithImpl<$Res> implements $CategoryInfoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? categoryName = freezed,
-    Object? categoryHref = freezed,
+    Object? name = freezed,
+    Object? href = freezed,
   }) {
     return _then(_value.copyWith(
-      categoryName: categoryName == freezed
-          ? _value.categoryName
-          : categoryName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      categoryHref: categoryHref == freezed
-          ? _value.categoryHref
-          : categoryHref // ignore: cast_nullable_to_non_nullable
+      href: href == freezed
+          ? _value.href
+          : href // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -942,7 +937,7 @@ abstract class _$CategoryInfoCopyWith<$Res>
           _CategoryInfo value, $Res Function(_CategoryInfo) then) =
       __$CategoryInfoCopyWithImpl<$Res>;
   @override
-  $Res call({String? categoryName, String? categoryHref});
+  $Res call({String? name, String? href});
 }
 
 /// @nodoc
@@ -957,17 +952,17 @@ class __$CategoryInfoCopyWithImpl<$Res> extends _$CategoryInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? categoryName = freezed,
-    Object? categoryHref = freezed,
+    Object? name = freezed,
+    Object? href = freezed,
   }) {
     return _then(_CategoryInfo(
-      categoryName: categoryName == freezed
-          ? _value.categoryName
-          : categoryName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      categoryHref: categoryHref == freezed
-          ? _value.categoryHref
-          : categoryHref // ignore: cast_nullable_to_non_nullable
+      href: href == freezed
+          ? _value.href
+          : href // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -976,17 +971,16 @@ class __$CategoryInfoCopyWithImpl<$Res> extends _$CategoryInfoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CategoryInfo implements _CategoryInfo {
-  const _$_CategoryInfo(
-      {required this.categoryName, required this.categoryHref});
+  const _$_CategoryInfo({required this.name, required this.href});
 
   @override
-  final String? categoryName;
+  final String? name;
   @override
-  final String? categoryHref;
+  final String? href;
 
   @override
   String toString() {
-    return 'CategoryInfo(categoryName: $categoryName, categoryHref: $categoryHref)';
+    return 'CategoryInfo(name: $name, href: $href)';
   }
 
   @override
@@ -994,14 +988,12 @@ class _$_CategoryInfo implements _CategoryInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CategoryInfo &&
-            (identical(other.categoryName, categoryName) ||
-                other.categoryName == categoryName) &&
-            (identical(other.categoryHref, categoryHref) ||
-                other.categoryHref == categoryHref));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.href, href) || other.href == href));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categoryName, categoryHref);
+  int get hashCode => Object.hash(runtimeType, name, href);
 
   @JsonKey(ignore: true)
   @override
@@ -1010,14 +1002,13 @@ class _$_CategoryInfo implements _CategoryInfo {
 }
 
 abstract class _CategoryInfo implements CategoryInfo {
-  const factory _CategoryInfo(
-      {required String? categoryName,
-      required String? categoryHref}) = _$_CategoryInfo;
+  const factory _CategoryInfo({required String? name, required String? href}) =
+      _$_CategoryInfo;
 
   @override
-  String? get categoryName;
+  String? get name;
   @override
-  String? get categoryHref;
+  String? get href;
   @override
   @JsonKey(ignore: true)
   _$CategoryInfoCopyWith<_CategoryInfo> get copyWith =>
@@ -1028,11 +1019,10 @@ abstract class _CategoryInfo implements CategoryInfo {
 class _$ProductionInfoTearOff {
   const _$ProductionInfoTearOff();
 
-  _ProductionInfo call(
-      {required String? productionName, required String? productionHref}) {
+  _ProductionInfo call({required String? name, required String? href}) {
     return _ProductionInfo(
-      productionName: productionName,
-      productionHref: productionHref,
+      name: name,
+      href: href,
     );
   }
 }
@@ -1042,8 +1032,8 @@ const $ProductionInfo = _$ProductionInfoTearOff();
 
 /// @nodoc
 mixin _$ProductionInfo {
-  String? get productionName => throw _privateConstructorUsedError;
-  String? get productionHref => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get href => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductionInfoCopyWith<ProductionInfo> get copyWith =>
@@ -1055,7 +1045,7 @@ abstract class $ProductionInfoCopyWith<$Res> {
   factory $ProductionInfoCopyWith(
           ProductionInfo value, $Res Function(ProductionInfo) then) =
       _$ProductionInfoCopyWithImpl<$Res>;
-  $Res call({String? productionName, String? productionHref});
+  $Res call({String? name, String? href});
 }
 
 /// @nodoc
@@ -1069,17 +1059,17 @@ class _$ProductionInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? productionName = freezed,
-    Object? productionHref = freezed,
+    Object? name = freezed,
+    Object? href = freezed,
   }) {
     return _then(_value.copyWith(
-      productionName: productionName == freezed
-          ? _value.productionName
-          : productionName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      productionHref: productionHref == freezed
-          ? _value.productionHref
-          : productionHref // ignore: cast_nullable_to_non_nullable
+      href: href == freezed
+          ? _value.href
+          : href // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1092,7 +1082,7 @@ abstract class _$ProductionInfoCopyWith<$Res>
           _ProductionInfo value, $Res Function(_ProductionInfo) then) =
       __$ProductionInfoCopyWithImpl<$Res>;
   @override
-  $Res call({String? productionName, String? productionHref});
+  $Res call({String? name, String? href});
 }
 
 /// @nodoc
@@ -1108,17 +1098,17 @@ class __$ProductionInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? productionName = freezed,
-    Object? productionHref = freezed,
+    Object? name = freezed,
+    Object? href = freezed,
   }) {
     return _then(_ProductionInfo(
-      productionName: productionName == freezed
-          ? _value.productionName
-          : productionName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      productionHref: productionHref == freezed
-          ? _value.productionHref
-          : productionHref // ignore: cast_nullable_to_non_nullable
+      href: href == freezed
+          ? _value.href
+          : href // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1127,17 +1117,16 @@ class __$ProductionInfoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProductionInfo implements _ProductionInfo {
-  const _$_ProductionInfo(
-      {required this.productionName, required this.productionHref});
+  const _$_ProductionInfo({required this.name, required this.href});
 
   @override
-  final String? productionName;
+  final String? name;
   @override
-  final String? productionHref;
+  final String? href;
 
   @override
   String toString() {
-    return 'ProductionInfo(productionName: $productionName, productionHref: $productionHref)';
+    return 'ProductionInfo(name: $name, href: $href)';
   }
 
   @override
@@ -1145,14 +1134,12 @@ class _$_ProductionInfo implements _ProductionInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ProductionInfo &&
-            (identical(other.productionName, productionName) ||
-                other.productionName == productionName) &&
-            (identical(other.productionHref, productionHref) ||
-                other.productionHref == productionHref));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.href, href) || other.href == href));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productionName, productionHref);
+  int get hashCode => Object.hash(runtimeType, name, href);
 
   @JsonKey(ignore: true)
   @override
@@ -1162,13 +1149,12 @@ class _$_ProductionInfo implements _ProductionInfo {
 
 abstract class _ProductionInfo implements ProductionInfo {
   const factory _ProductionInfo(
-      {required String? productionName,
-      required String? productionHref}) = _$_ProductionInfo;
+      {required String? name, required String? href}) = _$_ProductionInfo;
 
   @override
-  String? get productionName;
+  String? get name;
   @override
-  String? get productionHref;
+  String? get href;
   @override
   @JsonKey(ignore: true)
   _$ProductionInfoCopyWith<_ProductionInfo> get copyWith =>
